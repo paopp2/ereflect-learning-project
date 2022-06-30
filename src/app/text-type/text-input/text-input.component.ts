@@ -13,11 +13,8 @@ export class TextInputComponent {
   typedText: string = '';
   tries: number = 0;
   @Output() typedTextChange = new EventEmitter<string[]>();
-
   resetEventSubscription: Subscription;
-  // inputTries: number = 0;
-  charactersTyped: number = 0;
-
+  
   constructor(private typingHelperService: TypingHelperService) {
     this.tries = 0;
     this.resetEventSubscription = this.typingHelperService.getResetEvent().subscribe(() => { 
