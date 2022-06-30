@@ -29,7 +29,7 @@ export class TypingAnalyticsService {
   stop() { this.stopSubject.next(); }
   get stopEvent(): Observable<void>  { return this.stopSubject.asObservable(); }
   
-  isTypeFinished(): boolean {
+  isFinished(): boolean {
     return (this.inputText.length === this.displayText.length);
   }
 }

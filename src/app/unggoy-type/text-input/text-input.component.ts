@@ -26,7 +26,7 @@ export class TextInputComponent {
   
   onInput(input: string) {
     this.analyticsService.inputText = input;
-    if (this.analyticsService.isTypeFinished()) {
+    if (this.analyticsService.isFinished()) {
       this.analyticsService.stop();
     }
   }
