@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SentencesSourceComponent } from './typing-phrase/sentences-source.component';
+import { SentencesInputComponent } from './sentences-input/sentences-input.component';
+
+declare var require: any;
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SentencesSourceComponent,
+    SentencesInputComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
