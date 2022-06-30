@@ -3,11 +3,11 @@ import { Subscription } from 'rxjs';
 import { TypingHelperService } from '../typing-helper.service';
 
 @Component({
-  selector: 'app-text-type',
-  templateUrl: './text-type.component.html',
-  styleUrls: ['./text-type.component.css']
+  selector: 'app-unggoy-type',
+  templateUrl: './unggoy-type.component.html',
+  styleUrls: ['./unggoy-type.component.css']
 })
-export class TextTypeComponent implements OnInit {
+export class UnggoyTypeComponent implements OnInit {
   textInputArray: string[] = [];
 
   startEventSubscription: Subscription;

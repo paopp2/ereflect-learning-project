@@ -6,18 +6,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { AppComponent } from './app.component';
-import { TextSourceComponent } from './text-type/text-source/text-source.component';
-import { TextInputComponent } from './text-type/text-input/text-input.component';
-import { TextTypeComponent } from './text-type/text-type.component';
+import { TextSourceComponent } from './unggoy-type/text-source/text-source.component';
+import { TextInputComponent } from './unggoy-type/text-input/text-input.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
+import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 
 declare var require: any;
 
 @NgModule({
   declarations: [
     AppComponent,
-    TextTypeComponent,
+    UnggoyTypeComponent,
     TextSourceComponent,
     TextInputComponent,
     HeaderComponent,
