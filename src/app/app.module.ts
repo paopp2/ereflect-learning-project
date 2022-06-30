@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { TextSourceComponent } from './text-type/text-source/text-source.component';
 import { TextInputComponent } from './text-type/text-input/text-input.component';
@@ -27,7 +28,8 @@ declare var require: any;
     NoopAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
