@@ -8,17 +8,11 @@ import { TypingHelperService } from '../typing-helper.service';
 })
 export class TextTypeComponent implements OnInit {
   textInputArray: string[] = [];
-  requiredTextArray: string[] = [];
 
   constructor(private typingHelperService: TypingHelperService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  setRequiredText(textArr: string[]) {
-    this.requiredTextArray = textArr;
-  }
-  
   setInputText(textArr: string[]) {
     this.textInputArray = textArr;
   }
