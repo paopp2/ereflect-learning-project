@@ -1,0 +1,12 @@
+
+.untyped {
+    background-color: transparent;
+}
+
+.correct {
+    background-color: #2e962e7c;
+}
+
+.wrong {
+    background-color: #a321217c;
+}
