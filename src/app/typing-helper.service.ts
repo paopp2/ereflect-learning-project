@@ -5,9 +5,9 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class TypingHelperService {
-  private startSubject = new Subject<any>();
-  private resetSubject = new Subject<any>();
-  private stopSubject = new Subject<any>();
+  private startSubject = new Subject<void>();
+  private resetSubject = new Subject<void>();
+  private stopSubject = new Subject<void>();
 
   startEvent() { this.startSubject.next(); }
   getStartEvent(): Observable<any> { return this.startSubject.asObservable(); }
