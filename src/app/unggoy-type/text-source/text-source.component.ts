@@ -13,7 +13,8 @@ export class TextSourceComponent implements OnInit {
   charactersArray: string[] = [];
 
   constructor(private typingAnalyticsService: TypingAnalyticsService) {
-    this.typingAnalyticsService.getResetEvent().subscribe(() => this.setSentence());
+    this.typingAnalyticsService.resetEvent.subscribe(() => this.setSentence());
+    
   }
 
   ngOnInit(): void {

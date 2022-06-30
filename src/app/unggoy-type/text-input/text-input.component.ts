@@ -16,7 +16,7 @@ export class TextInputComponent {
   
   constructor(private typingAnalyticsService: TypingAnalyticsService) {
     this.tries = 0;
-    this.resetEventSubscription = this.typingAnalyticsService.getResetEvent().subscribe(() => { 
+    this.resetEventSubscription = this.typingAnalyticsService.resetEvent.subscribe(() => { 
       // Clear typed text
       this.typedText = "";
       this.typedTextChange.emit([]);
@@ -26,7 +26,7 @@ export class TextInputComponent {
   startTimer() {
     this.tries++;
     if (this.tries <= 1) {
-      this.typingAnalyticsService.startEvent();
+      this.typingAnalyticsService.start();
     }
   }
   

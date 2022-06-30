@@ -24,8 +24,8 @@ export class UnggoyTypeComponent implements OnInit {
   totalTime: number = 0;
 
   constructor(private typingAnalyticsService: TypingAnalyticsService) { 
-    this.startEventSubscription = this.typingAnalyticsService.getStartEvent().subscribe(()=> this.onStart());
-    this.stopEventSubscription = this.typingAnalyticsService.getStopEvent().subscribe(()=> this.running = false);
+    this.startEventSubscription = this.typingAnalyticsService.startEvent.subscribe(()=> this.onStart());
+    this.stopEventSubscription = this.typingAnalyticsService.stopEvent.subscribe(()=> this.running = false);
   }
 
   ngOnInit(): void { }
@@ -61,7 +61,7 @@ export class UnggoyTypeComponent implements OnInit {
     }
   }
   onReset() {
-    this.typingAnalyticsService.resetEvent(); //resets the whole thing
+    this.typingAnalyticsService.reset(); //resets the whole thing
     clearInterval(this.interval); //clears the interval in setInterval above
     this.storeDeciseconds = 0;
     this.deciseconds = "00";
