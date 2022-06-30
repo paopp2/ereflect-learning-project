@@ -13,15 +13,14 @@ export class TextTypeComponent implements OnInit {
   startEventSubscription: Subscription;
   stopEventSubscription: Subscription;
 
-  // Timer (stopwatch) props
   interval: any;
   running: boolean = false;
   storeDeciseconds: number = 0;
-  deciseconds: string = "00";
+  deciseconds: string = "00"; //display
   storeSeconds: number = 0;
-  seconds: string = "00";
+  seconds: string = "00"; //display
   storeMinutes: number = 0;
-  minutes: string = "00";
+  minutes: string = "00"; //display
   totalTime: number = 0;
 
   constructor(private typingHelperService: TypingHelperService) { 
