@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class TextInputComponent {
   typedText: string = '';
+  tries: number = 0;
   @Output() typedTextChange = new EventEmitter<string[]>();
 
   resetEventSubscription: Subscription;
@@ -18,6 +19,7 @@ export class TextInputComponent {
   charactersTyped: number = 0;
 
   constructor(private typingHelperService: TypingHelperService) {
+    this.tries = 0;
     this.resetEventSubscription = this.typingHelperService.getResetEvent().subscribe(() => { 
       // Clear typed text
       this.typedText = "";
@@ -25,12 +27,12 @@ export class TextInputComponent {
     });
   }
 
-  // startTimer() {
-  //   this.inputTries++;
-  //   if (this.inputTries <= 1) {
-  //     this.typingHelperService.startEvent();
-  //   }
-  // }
+  startTimer() {
+    this.tries++;
+    if (this.tries <= 1) {
+      this.typingHelperService.startEvent();
+    }
+  }
   
   onInput(input: string) {
     this.typedTextChange.emit(input.split(''));

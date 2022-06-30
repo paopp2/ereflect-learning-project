@@ -1,4 +1,11 @@
-<app-text-source [textInputArray]="textInputArray"></app-text-source>
-<app-text-input (typedTextChange)="setInputText($event)"></app-text-input>
-
-<button type="button" (click)="onReset()">RESET</button>
+<div class="container">
+  <h1 style="text-align: center">
+    <span id="stopwatch">{{ minutes }}:{{ seconds }}.{{ deciseconds }}</span>
+  </h1>
+  <app-text-source [textInputArray]="textInputArray"></app-text-source>
+  <app-text-input (typedTextChange)="setInputText($event)"></app-text-input>
+  <!-- <span>Total time: {{ totalTime }}</span> -->
+  <button mat-raised-button color="primary" (click)="onReset()" type="button">
+    Reset
+  </button>
+</div>

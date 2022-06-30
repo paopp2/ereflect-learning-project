@@ -1,4 +1,8 @@
 
+#phraseContainer {
+    margin-top: 10px;
+}
+
 .untyped {
     background-color: transparent;
 }
@@ -10,3 +14,4 @@
 .wrong {
     background-color: #a321217c;
 }
+

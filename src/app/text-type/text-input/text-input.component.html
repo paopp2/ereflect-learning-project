@@ -1,7 +1,14 @@
 <div id="typeBox">
-  <textarea
-    placeholder="Type here..."
-    [(ngModel)]="typedText"
-    (ngModelChange)="onInput($event)"
-  ></textarea>
+  <mat-form-field appearance="fill">
+    <textarea
+      matInput
+      matTextareaAutosize
+      matAutosizeMinRows="1"
+      matAutosizeMaxRows="5"
+      placeholder="Start Typing!"
+      [(ngModel)]="typedText"
+      (ngModelChange)="onInput($event)"
+      (input)="startTimer()"
+    ></textarea>
+  </mat-form-field>
 </div>
