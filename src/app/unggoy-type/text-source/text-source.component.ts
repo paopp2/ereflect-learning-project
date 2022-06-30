@@ -32,8 +32,8 @@ export class TextSourceComponent implements OnInit {
   }
 
   // Returns CSS class based on how arguments match
-  compareLetters(requiredLetter: string, typedLetter?: string,): string {
-    if (!typedLetter) return 'untyped';
-    return (typedLetter === requiredLetter) ? 'correct' : 'wrong';
+  compareLetters(displayLetter: string, inputLetter?: string,): string {
+    if (!inputLetter) return 'untyped';
+    return (inputLetter === displayLetter) ? 'correct' : 'wrong';
   }
 }

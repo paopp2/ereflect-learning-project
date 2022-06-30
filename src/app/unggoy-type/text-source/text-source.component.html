@@ -1,9 +1,10 @@
 <div id="phraseContainer">
   <mat-card>
-    <span
-      *ngFor="let char of displayTextArr; let i = index"
-      [class]="compareLetters(char, analyticsService.inputTextArr[i])"
-      >{{ char }}</span
-    >
+    <h3>
+      <span 
+        *ngFor="let char of displayTextArr; let i = index"
+        [class]="compareLetters(char, analyticsService.inputTextArr[i])"
+      >{{ char }}</span>
+    </h3>
   </mat-card>
 </div>
