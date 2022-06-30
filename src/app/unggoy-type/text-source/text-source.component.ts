@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TypingHelperService } from '../../typing-helper.service';
-import { Subscription } from 'rxjs';
+import { TypingAnalyticsService } from '../services/typing-analytics.service';
 const txtgen = require('txtgen');
 
 @Component({
@@ -13,8 +12,8 @@ export class TextSourceComponent implements OnInit {
   @Input() textInputArray: string[] = [];
   charactersArray: string[] = [];
 
-  constructor(private typingHelperService: TypingHelperService) {
-    this.typingHelperService.getResetEvent().subscribe(() => this.setSentence());
+  constructor(private typingAnalyticsService: TypingAnalyticsService) {
+    this.typingAnalyticsService.getResetEvent().subscribe(() => this.setSentence());
   }
 
   ngOnInit(): void {

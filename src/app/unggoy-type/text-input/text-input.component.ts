@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Inject, Output } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { TypingHelperService } from '../../typing-helper.service';
 import { Subscription } from 'rxjs';
+import { TypingAnalyticsService } from '../services/typing-analytics.service';
 
 
 @Component({
@@ -15,9 +14,9 @@ export class TextInputComponent {
   @Output() typedTextChange = new EventEmitter<string[]>();
   resetEventSubscription: Subscription;
   
-  constructor(private typingHelperService: TypingHelperService) {
+  constructor(private typingAnalyticsService: TypingAnalyticsService) {
     this.tries = 0;
-    this.resetEventSubscription = this.typingHelperService.getResetEvent().subscribe(() => { 
+    this.resetEventSubscription = this.typingAnalyticsService.getResetEvent().subscribe(() => { 
       // Clear typed text
       this.typedText = "";
       this.typedTextChange.emit([]);
@@ -27,7 +26,7 @@ export class TextInputComponent {
   startTimer() {
     this.tries++;
     if (this.tries <= 1) {
-      this.typingHelperService.startEvent();
+      this.typingAnalyticsService.startEvent();
     }
   }
   

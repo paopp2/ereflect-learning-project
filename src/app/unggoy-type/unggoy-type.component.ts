@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TypingHelperService } from '../typing-helper.service';
+import { TypingAnalyticsService } from './services/typing-analytics.service';
 
 @Component({
   selector: 'app-unggoy-type',
@@ -23,9 +23,9 @@ export class UnggoyTypeComponent implements OnInit {
   minutes: string = "00"; //display
   totalTime: number = 0;
 
-  constructor(private typingHelperService: TypingHelperService) { 
-    this.startEventSubscription = this.typingHelperService.getStartEvent().subscribe(()=> this.onStart());
-    this.stopEventSubscription = this.typingHelperService.getStopEvent().subscribe(()=> this.running = false);
+  constructor(private typingAnalyticsService: TypingAnalyticsService) { 
+    this.startEventSubscription = this.typingAnalyticsService.getStartEvent().subscribe(()=> this.onStart());
+    this.stopEventSubscription = this.typingAnalyticsService.getStopEvent().subscribe(()=> this.running = false);
   }
 
   ngOnInit(): void { }
@@ -61,7 +61,7 @@ export class UnggoyTypeComponent implements OnInit {
     }
   }
   onReset() {
-    this.typingHelperService.resetEvent(); //resets the whole thing
+    this.typingAnalyticsService.resetEvent(); //resets the whole thing
     clearInterval(this.interval); //clears the interval in setInterval above
     this.storeDeciseconds = 0;
     this.deciseconds = "00";
