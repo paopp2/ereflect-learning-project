@@ -9,12 +9,10 @@ const txtgen = require('txtgen');
 })
 
 export class TextSourceComponent implements OnInit {
-  @Input() textInputArray: string[] = [];
-  charactersArray: string[] = [];
+  displayTextArr: string[] = [];
 
-  constructor(private typingAnalyticsService: TypingAnalyticsService) {
-    this.typingAnalyticsService.resetEvent.subscribe(() => this.setSentence());
-    
+  constructor(public analyticsService: TypingAnalyticsService) {
+    analyticsService.resetEvent.subscribe(() => this.setSentence());
   }
 
   ngOnInit(): void {
@@ -29,7 +27,8 @@ export class TextSourceComponent implements OnInit {
       text = txtgen.paragraph();
     }
 
-    this.charactersArray = text.split('');
+    this.analyticsService.displayText = text; // Store the text for analytics
+    this.displayTextArr = text.split('');
   }
 
   // Returns CSS class based on how arguments match

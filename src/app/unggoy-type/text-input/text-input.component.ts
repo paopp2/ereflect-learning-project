@@ -9,28 +9,25 @@ import { TypingAnalyticsService } from '../services/typing-analytics.service';
   styleUrls: ['./text-input.component.css']
 })
 export class TextInputComponent {
-  typedText: string = '';
+  isTypeFinished = false;
   tries: number = 0;
-  @Output() typedTextChange = new EventEmitter<string[]>();
-  resetEventSubscription: Subscription;
   
-  constructor(private typingAnalyticsService: TypingAnalyticsService) {
-    this.tries = 0;
-    this.resetEventSubscription = this.typingAnalyticsService.resetEvent.subscribe(() => { 
-      // Clear typed text
-      this.typedText = "";
-      this.typedTextChange.emit([]);
-    });
+  constructor(public analyticsService: TypingAnalyticsService) {
+    analyticsService.resetEvent.subscribe(() => { this.isTypeFinished = false });
+    analyticsService.stopEvent.subscribe(() => { this.isTypeFinished = true });
   }
 
   startTimer() {
     this.tries++;
     if (this.tries <= 1) {
-      this.typingAnalyticsService.start();
+      this.analyticsService.start();
     }
   }
   
   onInput(input: string) {
-    this.typedTextChange.emit(input.split(''));
+    this.analyticsService.inputText = input;
+    if (this.analyticsService.isTypeFinished()) {
+      this.analyticsService.stop();
+    }
   }
 }

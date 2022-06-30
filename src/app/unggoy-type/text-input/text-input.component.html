@@ -6,8 +6,9 @@
       matAutosizeMinRows="1"
       matAutosizeMaxRows="5"
       placeholder="Start Typing!"
-      [(ngModel)]="typedText"
+      [(ngModel)]="analyticsService.inputText"
       (ngModelChange)="onInput($event)"
+      [disabled]="isTypeFinished"
       (input)="startTimer()"
     ></textarea>
   </mat-form-field>

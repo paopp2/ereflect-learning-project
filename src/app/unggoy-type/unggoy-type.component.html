@@ -6,8 +6,8 @@
   <h4 style="text-align: center">
     <span>Total time: {{ totalTime }}</span>
   </h4>
-  <app-text-source [textInputArray]="textInputArray"></app-text-source>
-  <app-text-input (typedTextChange)="setInputText($event)"></app-text-input>
+  <app-text-source></app-text-source>
+  <app-text-input></app-text-input>
 
   <button mat-raised-button color="primary" (click)="onReset()" type="button">
     Reset

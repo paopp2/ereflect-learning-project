@@ -8,11 +8,6 @@ import { TypingAnalyticsService } from './services/typing-analytics.service';
   styleUrls: ['./unggoy-type.component.css']
 })
 export class UnggoyTypeComponent implements OnInit {
-  textInputArray: string[] = [];
-
-  startEventSubscription: Subscription;
-  stopEventSubscription: Subscription;
-
   interval: any;
   running: boolean = false;
   storeDeciseconds: number = 0;
@@ -23,16 +18,12 @@ export class UnggoyTypeComponent implements OnInit {
   minutes: string = "00"; //display
   totalTime: number = 0;
 
-  constructor(private typingAnalyticsService: TypingAnalyticsService) { 
-    this.startEventSubscription = this.typingAnalyticsService.startEvent.subscribe(()=> this.onStart());
-    this.stopEventSubscription = this.typingAnalyticsService.stopEvent.subscribe(()=> this.running = false);
+  constructor(public analyticsService: TypingAnalyticsService) { 
+    this.analyticsService.startEvent.subscribe(()=> this.onStart());
+    this.analyticsService.stopEvent.subscribe(()=> this.running = false);
   }
 
   ngOnInit(): void { }
-
-  setInputText(textArr: string[]) {
-    this.textInputArray = textArr;
-  }
 
   onStart() {
     this.running = true;
@@ -61,7 +52,7 @@ export class UnggoyTypeComponent implements OnInit {
     }
   }
   onReset() {
-    this.typingAnalyticsService.reset(); //resets the whole thing
+    this.analyticsService.reset(); //resets the whole thing
     clearInterval(this.interval); //clears the interval in setInterval above
     this.storeDeciseconds = 0;
     this.deciseconds = "00";
