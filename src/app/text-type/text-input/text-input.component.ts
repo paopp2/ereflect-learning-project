@@ -1,15 +1,15 @@
 import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { TypingHelperService } from './../typing-helper.service';
+import { TypingHelperService } from '../../typing-helper.service';
 import { Subscription } from 'rxjs';
 
 
 @Component({
   selector: 'app-sentences-input',
-  templateUrl: './sentences-input.component.html',
-  styleUrls: ['./sentences-input.component.css']
+  templateUrl: './text-input.component.html',
+  styleUrls: ['./text-input.component.css']
 })
-export class SentencesInputComponent {
+export class TextInputComponent {
   resetEventSubscription: Subscription;
   inputTries: number = 0;
   typedText: string = "";
