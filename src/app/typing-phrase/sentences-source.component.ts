@@ -25,11 +25,12 @@ export class SentencesSourceComponent implements OnInit {
     this.charactersArr.length = 0; 
     let text: string;
     while (true) {
-      text = txtgen.paragraph(); 
+      text = txtgen.paragraph(); // generate text using txtgen
       if ((text.length >= 300) && (text.length <= 340)) {
         text.split('').forEach(character => this.charactersArr.push(character)); 
         break;
-      } else {
+      } 
+      else {
         continue;
       }
     }

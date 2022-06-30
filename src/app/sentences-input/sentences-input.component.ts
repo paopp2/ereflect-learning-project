@@ -37,7 +37,7 @@ export class SentencesInputComponent {
 
     let errorsMade: number = 0;
     const typedTextArray = this.typedText.split('');
-    this.phraseTextArray = this._document.getElementById('phraseContainer').querySelectorAll('span'); // Returns NodeList of found HTMLSpanElements in #phraseContainer
+    this.phraseTextArray = this._document.getElementById('sourceContainer').querySelectorAll('span'); // Returns NodeList of found HTMLSpanElements in #phraseContainer
     this.charactersTyped = this._document.querySelector('textarea').value.length;
 
   
