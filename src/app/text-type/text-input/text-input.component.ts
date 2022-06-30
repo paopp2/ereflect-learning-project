@@ -1,56 +1,38 @@
-import { Component, Inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { TypingHelperService } from '../../typing-helper.service';
 import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-sentences-input',
+  selector: 'app-text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.css']
 })
 export class TextInputComponent {
+  typedText: string = '';
+  @Output() typedTextChange = new EventEmitter<string[]>();
+
   resetEventSubscription: Subscription;
-  inputTries: number = 0;
-  typedText: string = "";
-  phraseTextArray: Array<HTMLSpanElement> = [];
+  // inputTries: number = 0;
   charactersTyped: number = 0;
 
-  constructor(private typingHelperService: TypingHelperService, @Inject(DOCUMENT) private _document: any) {
-    this.resetEventSubscription = this.typingHelperService.getResetEvent().subscribe(() => { // Defines the activity for this component when the reset function is called
-      const textBox = this._document.querySelector('textarea');
-      if (textBox !== null) textBox.value = "";
-      this.phraseTextArray.forEach((currentCharacter: HTMLSpanElement, currentIndex: number) => currentCharacter.style.background = "transparent");
-      textBox.disabled = false;
-      this.inputTries = 0;
-      this.charactersTyped = 0;
+  constructor(private typingHelperService: TypingHelperService) {
+    this.resetEventSubscription = this.typingHelperService.getResetEvent().subscribe(() => { 
+      // Clear typed text
+      this.typedText = "";
+      this.typedTextChange.emit([]);
     });
   }
-  startTimer() {
-    this.inputTries++;
-    if (this.inputTries <= 1) {
-      this.typingHelperService.startEvent();
-    }
-  }
 
-  trackTyping() {
-
-    let errorsMade: number = 0;
-    const typedTextArray = this.typedText.split('');
-    this.phraseTextArray = this._document.getElementById('phraseContainer').querySelectorAll('span'); // Returns NodeList of found HTMLSpanElements in #phraseContainer
-    this.charactersTyped = this._document.querySelector('textarea').value.length;
-
+  // startTimer() {
+  //   this.inputTries++;
+  //   if (this.inputTries <= 1) {
+  //     this.typingHelperService.startEvent();
+  //   }
+  // }
   
-    this.phraseTextArray.forEach((currentCharacter: HTMLSpanElement, currentIndex: number) => {
-      if (typedTextArray[currentIndex] == null) {
-        currentCharacter.style.background = "transparent";
-      } else if (currentCharacter.innerText === typedTextArray[currentIndex]) {
-        currentCharacter.style.background = "#2e962e7c"; //green
-      } else {
-        currentCharacter.style.background = "#a321217c"; //red
-        errorsMade++;
-      }
-    });
-
+  onInput(input: string) {
+    this.typedTextChange.emit(input.split(''));
   }
 }

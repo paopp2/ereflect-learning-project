@@ -1,3 +1,6 @@
 <div id="phraseContainer">
-  <span *ngFor="let char of charactersArr">{{ char }}</span>
+  <span 
+    *ngFor="let char of charactersArr, let i=index"
+    [class]="compareLetters(char, textInputArray[i])"
+    >{{ char }}</span>
 </div>
