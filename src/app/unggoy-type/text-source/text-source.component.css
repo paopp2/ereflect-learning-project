@@ -8,10 +8,10 @@
 }
 
 .correct {
-    background-color: #2e962e7c;
+    color:green;
 }
 
 .wrong {
-    background-color: #a321217c;
+    color:red;
 }
 
