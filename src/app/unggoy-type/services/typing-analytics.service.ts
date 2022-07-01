@@ -29,6 +29,7 @@ export class TypingAnalyticsService {
     this.resetSubject.next(); 
     this.inputText = '';
     this.displayText = '';
+    this.errorSubject.next(0);
   }
   get resetEvent(): Observable<void> { return this.resetSubject.asObservable(); }
 
