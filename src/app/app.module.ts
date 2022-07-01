@@ -12,8 +12,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 import { TimeDisplayPipe } from './unggoy-type/pipes/time-display.pipe';
+import { StatsComponent } from './unggoy-type/stats/stats.component';
 
-declare var require: any;
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ declare var require: any;
     TextInputComponent,
     HeaderComponent,
     TimeDisplayPipe,
+    StatsComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,7 @@ declare var require: any;
     MatButtonModule,
     MatToolbarModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

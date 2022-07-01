@@ -1,7 +1,5 @@
-import { Component, EventEmitter, Inject, Output } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
 import { TypingAnalyticsService } from '../services/typing-analytics.service';
-
 
 @Component({
   selector: 'app-text-input',
@@ -11,7 +9,7 @@ import { TypingAnalyticsService } from '../services/typing-analytics.service';
 export class TextInputComponent {
   isTypeFinished = false;
   tries: number = 0;
-  
+
   constructor(public analyticsService: TypingAnalyticsService) {
     analyticsService.resetEvent.subscribe(() => { this.isTypeFinished = false });
     analyticsService.stopEvent.subscribe(() => { this.isTypeFinished = true });

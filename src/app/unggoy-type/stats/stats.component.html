@@ -1,0 +1,9 @@
+<div class="container"></div>
+<h1 style="text-align: center">
+  <span id="stopwatch"> {{ storeDs | timeDisplay }} </span>
+</h1>
+<div id="wrapper">
+  <button mat-raised-button color="primary" (click)="onReset()" type="button">
+    Reset
+  </button>
+</div>
