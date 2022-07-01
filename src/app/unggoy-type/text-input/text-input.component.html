@@ -3,8 +3,7 @@
     <textarea
       matInput
       matTextareaAutosize
-      matAutosizeMinRows="1"
-      matAutosizeMaxRows="5"
+      rows="10"
       placeholder="Start Typing!"
       [(ngModel)]="analyticsService.inputText"
       (ngModelChange)="onInput($event)"
