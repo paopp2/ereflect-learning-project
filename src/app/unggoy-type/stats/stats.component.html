@@ -3,7 +3,14 @@
   <span id="stopwatch"> {{ storeDs | timeDisplay }} </span>
 </h1>
 <div id="wrapper">
-  <button mat-raised-button color="primary" (click)="onReset()" type="button">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onReset()"
+    type="button"
+    class="example-ripple-container mat-elevation-z4"
+    matRipple
+  >
     Reset
   </button>
 </div>

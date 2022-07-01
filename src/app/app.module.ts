@@ -13,7 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 import { TimeDisplayPipe } from './unggoy-type/pipes/time-display.pipe';
 import { StatsComponent } from './unggoy-type/stats/stats.component';
-
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import { StatsComponent } from './unggoy-type/stats/stats.component';
     MatToolbarModule,
     MatInputModule,
     MatCardModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
