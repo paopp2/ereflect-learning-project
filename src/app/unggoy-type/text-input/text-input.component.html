@@ -9,7 +9,9 @@
       [(ngModel)]="analyticsService.inputText"
       (ngModelChange)="onInput($event)"
       [disabled]="isTypeFinished"
-      (input)="startTimer()"
+      (input)="startTimer(); checkErrors()"
     ></textarea>
   </mat-form-field>
+
+  <!-- <h1>{{ errorCount }}</h1> -->
 </div>

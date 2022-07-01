@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { TypingAnalyticsService } from '../services/typing-analytics.service';
+
 
 @Component({
   selector: 'app-text-input',
@@ -20,6 +21,11 @@ export class TextInputComponent {
     if (this.tries <= 1) {
       this.analyticsService.start();
     }
+  }
+
+  checkErrors() {
+    this.analyticsService.errorChecker();
+    
   }
   
   onInput(input: string) {

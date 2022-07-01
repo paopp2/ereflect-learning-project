@@ -9,10 +9,14 @@ export class StatsComponent implements OnInit {
   interval: any;
   running: boolean = false;
   storeDs: number = 0;
+  errorCounter: number = 0;
 
   constructor(public analyticsService: TypingAnalyticsService) { 
     this.analyticsService.startEvent.subscribe(()=> this.onStart());
     this.analyticsService.stopEvent.subscribe(()=> this.running = false);
+    this.analyticsService.errorData.subscribe(data => {  //subscribe to error counter from the service
+      this.errorCounter = data;
+    })
   }
 
   ngOnInit(): void { }
