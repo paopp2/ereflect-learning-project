@@ -11,6 +11,7 @@ import { TextInputComponent } from './unggoy-type/text-input/text-input.componen
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
+import { TimeDisplayPipe } from './unggoy-type/pipes/time-display.pipe';
 
 declare var require: any;
 
@@ -21,6 +22,7 @@ declare var require: any;
     TextSourceComponent,
     TextInputComponent,
     HeaderComponent,
+    TimeDisplayPipe,
   ],
   imports: [
     BrowserModule,

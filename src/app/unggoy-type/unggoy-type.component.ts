@@ -17,6 +17,7 @@ export class UnggoyTypeComponent implements OnInit {
   storeMinutes: number = 0;
   minutes: string = "00"; //display
   totalTime: number = 0;
+  storeDs: number = 0;
 
   constructor(public analyticsService: TypingAnalyticsService) { 
     this.analyticsService.startEvent.subscribe(()=> this.onStart());
@@ -32,6 +33,7 @@ export class UnggoyTypeComponent implements OnInit {
   
   timer() {
     if (this.running) {
+      this.storeDs++;
       this.storeDeciseconds++; // Increment deciseconds every time the stopwatch function is called
 
       if (this.storeDeciseconds / 100 === 1) {
