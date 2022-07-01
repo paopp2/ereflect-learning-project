@@ -13,7 +13,6 @@ import { HeaderComponent } from './header/header.component';
 import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 import { TimeDisplayPipe } from './unggoy-type/pipes/time-display.pipe';
 import { StatsComponent } from './unggoy-type/stats/stats.component';
-import {MatGridListModule} from '@angular/material/grid-list';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
@@ -34,8 +33,7 @@ import { FooterComponent } from './footer/footer.component';
     MatButtonModule,
     MatToolbarModule,
     MatInputModule,
-    MatCardModule,
-    MatGridListModule
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
