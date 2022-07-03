@@ -8,7 +8,7 @@
       [(ngModel)]="analyticsService.inputText"
       (ngModelChange)="onInput($event)"
       [disabled]="isTypeFinished"
-      (input)="startTimer(); checkErrors()"
+      (input)="startTimer()"
     ></textarea>
   </mat-form-field>
 </div>

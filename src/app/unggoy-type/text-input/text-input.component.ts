@@ -23,13 +23,10 @@ export class TextInputComponent {
     }
   }
 
-  checkErrors() {
-    this.analyticsService.errorChecker();
-    
-  }
   
   onInput(input: string) {
     this.analyticsService.inputText = input;
     this.analyticsService.stopOnFinish();
+    this.analyticsService.errorChecker();
   }
 }
