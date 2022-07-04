@@ -4,7 +4,9 @@
       <span
         *ngFor="let char of displayTextArr; let i = index"
         [class]="compareLetters(char, inputTextArr[i])"
-      >{{ char }}</span>
+        id="Inconsolata"
+        >{{ char }}</span
+      >
     </h3>
   </mat-card>
 </div>
