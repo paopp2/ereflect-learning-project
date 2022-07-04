@@ -12,9 +12,9 @@ export class TypingAnalyticsService {
 
   constructor(@Inject(DOCUMENT) private _document: any){}
   // Signals to subscribe to
-  private startSubject = new Subject<void>();
-  private resetSubject = new Subject<void>();
-  private stopSubject = new Subject<void>();
+  public startSubject = new Subject<void>();
+  public resetSubject = new Subject<void>();
+  public stopSubject = new Subject<void>();
   private errorSubject = new Subject<number>();
 
   errorData = this.errorSubject.asObservable();
@@ -23,7 +23,6 @@ export class TypingAnalyticsService {
   get displayTextArr(): string[] { return this.displayText.split('') }
 
   start() { this.startSubject.next(); }
-  get startEvent(): Observable<void> { return this.startSubject.asObservable() }
 
   reset() { 
     this.resetSubject.next(); 
@@ -31,10 +30,8 @@ export class TypingAnalyticsService {
     this.displayText = '';
     this.errorSubject.next(0);
   }
-  get resetEvent(): Observable<void> { return this.resetSubject.asObservable(); }
 
   stop() { this.stopSubject.next(); }
-  get stopEvent(): Observable<void>  { return this.stopSubject.asObservable(); }
   
   stopOnFinish() {
     if(this.inputText.length === this.displayText.length) {
@@ -51,6 +48,7 @@ export class TypingAnalyticsService {
         errorsMade++;
       }
     });
-      this.errorSubject.next(errorsMade);
+
+    this.errorSubject.next(errorsMade);
   }
 }

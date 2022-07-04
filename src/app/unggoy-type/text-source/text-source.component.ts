@@ -12,7 +12,7 @@ export class TextSourceComponent implements OnInit {
   displayTextArr: string[] = [];
 
   constructor(public analyticsService: TypingAnalyticsService) {
-    analyticsService.resetEvent.subscribe(() => this.setSentence());
+    analyticsService.resetSubject.subscribe(() => this.setSentence());
   }
 
   ngOnInit(): void {

@@ -12,8 +12,8 @@ export class StatsComponent implements OnInit {
   errorCounter: number = 0;
 
   constructor(public analyticsService: TypingAnalyticsService) { 
-    this.analyticsService.startEvent.subscribe(()=> this.onStart());
-    this.analyticsService.stopEvent.subscribe(()=> this.running = false);
+    this.analyticsService.startSubject.subscribe(() => this.onStart());
+    this.analyticsService.stopSubject.subscribe(() => this.running = false);
     this.analyticsService.errorData.subscribe(data => {  //subscribe to error counter from the service
       this.errorCounter = data;
     })

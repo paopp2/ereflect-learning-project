@@ -12,8 +12,8 @@ export class TextInputComponent {
   tries: number = 0;
 
   constructor(public analyticsService: TypingAnalyticsService) {
-    analyticsService.resetEvent.subscribe(() => { this.isTypeFinished = false });
-    analyticsService.stopEvent.subscribe(() => { this.isTypeFinished = true });
+    analyticsService.resetSubject.subscribe(() => this.isTypeFinished = false);
+    analyticsService.stopSubject.subscribe(() =>  this.isTypeFinished = true);
   }
 
   startTimer() {
