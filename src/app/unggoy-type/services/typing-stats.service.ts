@@ -6,9 +6,9 @@ import { Subject, Observable } from 'rxjs';
 export class TypingStatsService {
   inputText: string = '';
   displayText: string = '';
-  errorCount: number = 0;
   timeInDs: number = 0;
   isRunning: boolean = false;
+  private errorCount: number = 0;
   private interval?: NodeJS.Timeout;
 
   constructor() { }
@@ -23,7 +23,8 @@ export class TypingStatsService {
   start() { 
     this.isRunning = true;
     if(!this.interval) {
-      this.interval = setInterval(() => this.timeInDs++, 10); // Update every decisecond
+      // Increment every decisecond
+      this.interval = setInterval(() => this.timeInDs++, 10);
     }
     this.startSubject.next(); 
   }
@@ -64,5 +65,11 @@ export class TypingStatsService {
     const wordCount = this.inputText.split(' ').length;
     const timeInMins = this.timeInDs / 6000;
     return wordCount / timeInMins;
+  }
+  
+  get accuracy(): number {
+    const inputLength = this.inputText.length;
+    const totalLength = inputLength + this.errorCount;
+    return inputLength / totalLength;
   }
 }
