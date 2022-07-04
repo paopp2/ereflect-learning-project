@@ -6,11 +6,10 @@ import { Subject, Observable } from 'rxjs';
 export class TypingStatsService {
   inputText: string = '';
   displayText: string = '';
-  phraseTextArray: Array<HTMLSpanElement> = [];
   errorCount: number = 0;
   timeInDs: number = 0;
   isRunning: boolean = false;
-  interval: any;
+  private interval?: NodeJS.Timeout;
 
   constructor() { }
   // Signals to subscribe to
@@ -44,7 +43,7 @@ export class TypingStatsService {
 
   stop() { 
     clearInterval(this.interval);
-    this.interval = null;
+    this.interval = undefined;
 
     this.isRunning = false;
     this.stopSubject.next(); 
