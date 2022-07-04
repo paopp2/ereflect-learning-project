@@ -6,18 +6,12 @@ import { TypingStatsService } from '../services/typing-stats.service';
   styleUrls: ['./typing-stats.component.css']
 })
 export class TypingStatsComponent implements OnInit {
-  @Input() errorCount = 0;
-  @Input() timeInDs: number = 0; // Time in deciseconds
 
-  constructor(public statsService: TypingStatsService) { 
-    this.statsService.startSubject.subscribe(() => {});
-    this.statsService.stopSubject.subscribe(() => {});
-  }
+  constructor(public statsService: TypingStatsService) { }
 
   ngOnInit(): void { }
   
   onReset() {
     this.statsService.reset();
   }
-
 }

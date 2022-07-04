@@ -16,9 +16,6 @@ export class TypingStatsService {
   public startSubject = new Subject<void>();
   public resetSubject = new Subject<void>();
   public stopSubject = new Subject<void>();
-  // private errorSubject = new Subject<number>();
-
-  // errorData = this.errorSubject.asObservable();
 
   get inputTextArr(): string[] { return this.inputText.split('') }
   get displayTextArr(): string[] { return this.displayText.split('') }
@@ -38,7 +35,6 @@ export class TypingStatsService {
     this.inputText = '';
     this.displayText = '';
     this.resetSubject.next();
-    // this.errorSubject.next(0);
   }
 
   stop() { 
@@ -63,16 +59,10 @@ export class TypingStatsService {
       this.stop();
     }
   }
-
-  // onStart() {
-  //   this.running = true;
-  //   this.interval = setInterval(() => this.timer(), 10); // Update every decisecond
-  // }
   
-  // onReset() {
-  //   this.statsService.reset(); //resets the whole thing
-  //   clearInterval(this.interval); //clears the interval in setInterval above
-  //   this.storeDs = 0;
-  // }
-
+  get wordsPerMin(): number {
+    const wordCount = this.inputText.split(' ').length;
+    const timeInMins = this.timeInDs / 6000;
+    return wordCount / timeInMins;
+  }
 }

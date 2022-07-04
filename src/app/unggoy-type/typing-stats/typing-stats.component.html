@@ -1,19 +1,19 @@
 <div class="container"></div>
 <h1 style="text-align: center">
   <span id="stopwatch" style="font-size: 60px">
-    {{ timeInDs | timeDisplay }}
+    {{ statsService.timeInDs | timeDisplay }}
   </span>
 </h1>
 
 <div style="display: flex">
   <mat-card style="flex: 1 1 auto">
-    <mat-card-title>WPM </mat-card-title>
-    <h3>WPM here</h3>
+    <mat-card-title>WPM</mat-card-title>
+    <h3>{{ (statsService.wordsPerMin | number:'1.2-2') ?? '-' }}</h3>
   </mat-card>
   <mat-card style="flex: 1 1 auto">
     <mat-card-title>Errors </mat-card-title>
-    <h3>{{ errorCount }}</h3></mat-card
-  >
+    <h3>{{ statsService.errorCount }}</h3>
+  </mat-card>
 </div>
 <hr />
 <div id="wrapper">
