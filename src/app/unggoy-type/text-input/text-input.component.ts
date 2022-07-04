@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { TypingStatsService } from '../services/typing-stats.service';
 
 
@@ -8,6 +8,7 @@ import { TypingStatsService } from '../services/typing-stats.service';
   styleUrls: ['./text-input.component.css']
 })
 export class TextInputComponent {
+  @Output() inputChange = new EventEmitter<string>();
   isTypeFinished = false;
   tries: number = 0;
 
@@ -23,10 +24,7 @@ export class TextInputComponent {
     }
   }
 
-  
   onInput(input: string) {
-    this.statsService.inputText = input;
-    this.statsService.stopOnFinish();
-    this.statsService.errorChecker();
+    this.inputChange.emit(input);
   }
 }

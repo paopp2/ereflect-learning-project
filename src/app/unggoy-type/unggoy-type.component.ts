@@ -8,8 +8,19 @@ import { TypingStatsService } from './services/typing-stats.service';
   styleUrls: ['./unggoy-type.component.css']
 })
 export class UnggoyTypeComponent implements OnInit {
-  
-  constructor(public statsService: TypingStatsService) {}
+
+  constructor(public statsService: TypingStatsService) { }
 
   ngOnInit() { }
+
+  onDisplayTextChange(text: string) {
+    this.statsService.displayText = text;
+  }
+
+  onInput(input: string) {
+    this.statsService.inputText = input;
+    this.statsService.stopOnFinish();
+    this.statsService.errorChecker();
+  }
+
 }

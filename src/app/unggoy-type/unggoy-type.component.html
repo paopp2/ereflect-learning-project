@@ -1,5 +1,14 @@
 <div class="container">
-  <app-typing-stats [timeInDs]="statsService.timeInDs"></app-typing-stats>
-  <app-text-source></app-text-source>
-  <app-text-input></app-text-input>
+  <app-typing-stats 
+    [timeInDs]="statsService.timeInDs"
+  ></app-typing-stats>
+
+  <app-text-source 
+    [inputText]="statsService.inputText"
+    (displayTextChange)="onDisplayTextChange($event)"
+  ></app-text-source>
+
+  <app-text-input
+    (inputChange)="onInput($event)"
+  ></app-text-input>
 </div>
