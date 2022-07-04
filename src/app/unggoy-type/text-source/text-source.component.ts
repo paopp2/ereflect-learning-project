@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TypingAnalyticsService } from '../services/typing-analytics.service';
+import { TypingStatsService } from '../services/typing-stats.service';
 const txtgen = require('txtgen');
 
 @Component({
@@ -11,8 +11,8 @@ const txtgen = require('txtgen');
 export class TextSourceComponent implements OnInit {
   displayTextArr: string[] = [];
 
-  constructor(public analyticsService: TypingAnalyticsService) {
-    analyticsService.resetSubject.subscribe(() => this.setSentence());
+  constructor(public statsService: TypingStatsService) {
+    statsService.resetSubject.subscribe(() => this.setSentence());
   }
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class TextSourceComponent implements OnInit {
       text = txtgen.paragraph();
     }
 
-    this.analyticsService.displayText = text; // Store the text for analytics
+    this.statsService.displayText = text; // Store the text for analytics
     this.displayTextArr = text.split('');
   }
 

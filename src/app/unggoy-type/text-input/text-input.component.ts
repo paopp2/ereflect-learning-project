@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { TypingAnalyticsService } from '../services/typing-analytics.service';
+import { TypingStatsService } from '../services/typing-stats.service';
 
 
 @Component({
@@ -11,22 +11,22 @@ export class TextInputComponent {
   isTypeFinished = false;
   tries: number = 0;
 
-  constructor(public analyticsService: TypingAnalyticsService) {
-    analyticsService.resetSubject.subscribe(() => this.isTypeFinished = false);
-    analyticsService.stopSubject.subscribe(() =>  this.isTypeFinished = true);
+  constructor(public statsService: TypingStatsService) {
+    statsService.resetSubject.subscribe(() => this.isTypeFinished = false);
+    statsService.stopSubject.subscribe(() => this.isTypeFinished = true);
   }
 
   startTimer() {
     this.tries++;
     if (this.tries <= 1) {
-      this.analyticsService.start();
+      this.statsService.start();
     }
   }
 
   
   onInput(input: string) {
-    this.analyticsService.inputText = input;
-    this.analyticsService.stopOnFinish();
-    this.analyticsService.errorChecker();
+    this.statsService.inputText = input;
+    this.statsService.stopOnFinish();
+    this.statsService.errorChecker();
   }
 }

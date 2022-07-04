@@ -5,7 +5,7 @@
       matTextareaAutosize
       rows="10"
       placeholder="Start Typing!"
-      [(ngModel)]="analyticsService.inputText"
+      [(ngModel)]="statsService.inputText"
       (ngModelChange)="onInput($event)"
       [disabled]="isTypeFinished"
       (input)="startTimer()"

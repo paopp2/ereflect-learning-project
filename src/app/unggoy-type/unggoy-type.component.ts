@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TypingAnalyticsService } from './services/typing-analytics.service';
+import { TypingStatsService } from './services/typing-stats.service';
 
 @Component({
   selector: 'app-unggoy-type',
@@ -8,8 +8,8 @@ import { TypingAnalyticsService } from './services/typing-analytics.service';
   styleUrls: ['./unggoy-type.component.css']
 })
 export class UnggoyTypeComponent implements OnInit {
-
-  ngOnInit() {
   
-  }
+  constructor(public statsService: TypingStatsService) {}
+
+  ngOnInit() { }
 }

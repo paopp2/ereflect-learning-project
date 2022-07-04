@@ -12,7 +12,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 import { TimeDisplayPipe } from './unggoy-type/pipes/time-display.pipe';
-import { StatsComponent } from './unggoy-type/stats/stats.component';
+import { TypingStatsComponent } from './unggoy-type/typing-stats/typing-stats.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { FooterComponent } from './footer/footer.component';
     TextInputComponent,
     HeaderComponent,
     TimeDisplayPipe,
-    StatsComponent,
+    TypingStatsComponent,
     FooterComponent,
   ],
   imports: [

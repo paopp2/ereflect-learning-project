@@ -4,12 +4,12 @@ import { DOCUMENT } from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
-export class TypingAnalyticsService {
+export class TypingStatsService {
   inputText: string = '';
   displayText: string = '';
   phraseTextArray: Array<HTMLSpanElement> = [];
   errorCount: number = 0;
-  storeDs: number = 0;
+  timeInDs: number = 0;
   running: boolean = false;
   interval: any;
 
@@ -18,30 +18,38 @@ export class TypingAnalyticsService {
   public startSubject = new Subject<void>();
   public resetSubject = new Subject<void>();
   public stopSubject = new Subject<void>();
-  private errorSubject = new Subject<number>();
+  // private errorSubject = new Subject<number>();
 
-  errorData = this.errorSubject.asObservable();
+  // errorData = this.errorSubject.asObservable();
 
   get inputTextArr(): string[] { return this.inputText.split('') }
   get displayTextArr(): string[] { return this.displayText.split('') }
 
-  start() { this.startSubject.next(); }
+  start() { 
+    this.running = true;
+    this.interval = setInterval(() => this.timeInDs++, 10); // Update every decisecond
+    this.startSubject.next(); 
+  }
 
   reset() {
-    this.resetSubject.next();
+    this.timeInDs = 0;
     this.inputText = '';
     this.displayText = '';
-    this.errorSubject.next(0);
+    this.resetSubject.next();
+    // this.errorSubject.next(0);
   }
 
-  timer() {
-    if (this.running) {
-      this.storeDs++;
-    }
+  // timer() {
+  //   if (this.running) {
+  //     this.timeInDs++;
+  //   }
+  // }
+
+
+  stop() { 
+    clearInterval(this.interval);
+    this.stopSubject.next(); 
   }
-
-
-  stop() { this.stopSubject.next(); }
 
 
   stopOnFinish() {
@@ -60,7 +68,7 @@ export class TypingAnalyticsService {
       }
     });
 
-    this.errorSubject.next(errorsMade);
+    // this.errorSubject.next(errorsMade);
   }
 
   // onStart() {
@@ -69,7 +77,7 @@ export class TypingAnalyticsService {
   // }
   
   // onReset() {
-  //   this.analyticsService.reset(); //resets the whole thing
+  //   this.statsService.reset(); //resets the whole thing
   //   clearInterval(this.interval); //clears the interval in setInterval above
   //   this.storeDs = 0;
   // }
