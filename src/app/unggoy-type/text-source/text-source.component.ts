@@ -16,10 +16,10 @@ export class TextSourceComponent implements OnInit {
   constructor(public statsService: TypingStatsService) {
     statsService.resetSubject.subscribe(() => this.setSentence());
   }
-  
+
   get inputTextArr() {
     return this.inputText.split('')
-  } 
+  }
 
   ngOnInit(): void {
     this.setSentence();

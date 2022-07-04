@@ -1,5 +1,6 @@
 <div class="container">
   <app-typing-stats 
+    [errorCount]="statsService.errorCount"
     [timeInDs]="statsService.timeInDs"
   ></app-typing-stats>
 

@@ -10,18 +10,10 @@ import { TypingStatsService } from '../services/typing-stats.service';
 export class TextInputComponent {
   @Output() inputChange = new EventEmitter<string>();
   isTypeFinished = false;
-  tries: number = 0;
 
   constructor(public statsService: TypingStatsService) {
     statsService.resetSubject.subscribe(() => this.isTypeFinished = false);
     statsService.stopSubject.subscribe(() => this.isTypeFinished = true);
-  }
-
-  startTimer() {
-    this.tries++;
-    if (this.tries <= 1) {
-      this.statsService.start();
-    }
   }
 
   onInput(input: string) {

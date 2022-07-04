@@ -1,6 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { DOCUMENT } from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +12,7 @@ export class TypingStatsService {
   isRunning: boolean = false;
   interval: any;
 
-  constructor(@Inject(DOCUMENT) private _document: any) { }
+  constructor() { }
   // Signals to subscribe to
   public startSubject = new Subject<void>();
   public resetSubject = new Subject<void>();
@@ -35,6 +34,7 @@ export class TypingStatsService {
 
   reset() {
     this.stop();
+    this.errorCount = 0;
     this.timeInDs = 0;
     this.inputText = '';
     this.displayText = '';
@@ -50,24 +50,19 @@ export class TypingStatsService {
     this.stopSubject.next(); 
   }
 
+  processInput(input: string) {
+    this.inputText = input;
+    const inputLength = this.inputTextArr.length;
+    const inputIndex = inputLength - 1;
+    const isWrongInput = this.inputTextArr[inputIndex] !== this.displayTextArr[inputIndex];
+    
+    if(isWrongInput) {
+      this.errorCount++;
+    }
 
-  stopOnFinish() {
-    if (this.inputText.length === this.displayText.length) {
+    if (inputLength === this.displayText.length) {
       this.stop();
     }
-  }
-
-  errorChecker() {
-    let errorsMade: number = 0;
-    this.phraseTextArray = this._document.getElementById('phraseContainer').querySelectorAll('span');
-
-    this.phraseTextArray.forEach((currentCharacter: HTMLSpanElement, currentIndex: number) => {
-      if (currentCharacter.innerText !== this.inputText[currentIndex] && this.inputText[currentIndex] != null) {
-        errorsMade++;
-      }
-    });
-
-    // this.errorSubject.next(errorsMade);
   }
 
   // onStart() {

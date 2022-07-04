@@ -21,9 +21,6 @@ export class UnggoyTypeComponent implements OnInit {
       this.statsService.start();
     }
     
-    this.statsService.inputText = input;
-    this.statsService.stopOnFinish();
-    this.statsService.errorChecker();
+    this.statsService.processInput(input);
   }
-
 }
