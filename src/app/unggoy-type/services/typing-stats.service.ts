@@ -10,7 +10,7 @@ export class TypingStatsService {
   phraseTextArray: Array<HTMLSpanElement> = [];
   errorCount: number = 0;
   timeInDs: number = 0;
-  running: boolean = false;
+  isRunning: boolean = false;
   interval: any;
 
   constructor(@Inject(DOCUMENT) private _document: any) { }
@@ -26,12 +26,15 @@ export class TypingStatsService {
   get displayTextArr(): string[] { return this.displayText.split('') }
 
   start() { 
-    this.running = true;
-    this.interval = setInterval(() => this.timeInDs++, 10); // Update every decisecond
+    this.isRunning = true;
+    if(!this.interval) {
+      this.interval = setInterval(() => this.timeInDs++, 10); // Update every decisecond
+    }
     this.startSubject.next(); 
   }
 
   reset() {
+    this.stop();
     this.timeInDs = 0;
     this.inputText = '';
     this.displayText = '';
@@ -39,15 +42,11 @@ export class TypingStatsService {
     // this.errorSubject.next(0);
   }
 
-  // timer() {
-  //   if (this.running) {
-  //     this.timeInDs++;
-  //   }
-  // }
-
-
   stop() { 
     clearInterval(this.interval);
+    this.interval = null;
+
+    this.isRunning = false;
     this.stopSubject.next(); 
   }
 

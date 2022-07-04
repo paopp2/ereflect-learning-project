@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { TypingStatsService } from './services/typing-stats.service';
 
 @Component({
@@ -18,6 +17,10 @@ export class UnggoyTypeComponent implements OnInit {
   }
 
   onInput(input: string) {
+    if(!this.statsService.isRunning)  {
+      this.statsService.start();
+    }
+    
     this.statsService.inputText = input;
     this.statsService.stopOnFinish();
     this.statsService.errorChecker();
