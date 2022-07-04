@@ -1,7 +1,7 @@
 <div class="container"></div>
 <h1 style="text-align: center">
   <span id="stopwatch" style="font-size: 60px">
-    {{ storeDs | timeDisplay }}
+    {{ analyticsService.storeDs | timeDisplay }}
   </span>
 </h1>
 
@@ -17,7 +17,7 @@
 </div>
 <hr />
 <div id="wrapper">
-  <button mat-raised-button color="primary" (click)="onReset()" type="button">
+  <button mat-raised-button color="primary" (click)="analyticsService.reset()" type="button">
     Reset
   </button>
 </div>
