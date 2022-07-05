@@ -5,15 +5,14 @@
     </span>
   </h1>
 </div>
-<div *ngIf="statsService.wordsPerMin < 80; then lower; else higher"></div>
-<ng-template #lower
-  ><img
-    src="https://c.tenor.com/ddt1NCaQvPoAAAAM/monkey-cute.gif"
-    width="50"
-    height="50"
-    class="monkeyGif"
-    id="center"
-/></ng-template>
+<img
+  src="https://c.tenor.com/ddt1NCaQvPoAAAAM/monkey-cute.gif"
+  width="50"
+  height="50"
+  class="monkeyGif"
+  id="center"
+  *ngIf="statsService.wordsPerMin < 80; else higher"
+/>
 <ng-template #higher
   ><img
     src="https://c.tenor.com/M7V-haVda1MAAAAM/cute-adorable.gif"
