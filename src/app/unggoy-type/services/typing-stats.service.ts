@@ -48,11 +48,14 @@ export class TypingStatsService {
 
   processInput(inputData: {input: string, keyPressed: string}) {
     this.inputText = inputData.input;
+    const isBackspacePressed = inputData.keyPressed === null;
     const inputLength = this.inputTextArr.length;
     const inputIndex = inputLength - 1;
     const isWrongInput = this.inputTextArr[inputIndex] !== this.displayTextArr[inputIndex];
     
-    if(isWrongInput) {
+    // If last character of input is wrong and backspace
+    // wasn't pressed, increment errorCount
+    if(isWrongInput && !isBackspacePressed) {
       this.errorCount++;
     }
 
