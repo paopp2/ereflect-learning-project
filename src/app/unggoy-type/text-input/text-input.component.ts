@@ -23,4 +23,8 @@ export class TextInputComponent {
     audio.play();
   }
 
+  disableMovement(event: any){
+    if(event.key === "ArrowRight" || event.key === "ArrowLeft") event.preventDefault();
+  }
+
 }

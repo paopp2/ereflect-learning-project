@@ -8,6 +8,8 @@
       [(ngModel)]="statsService.inputText"
       (ngModelChange)="onInput($event)"
       [disabled]="isTypeFinished"
+      (keydown)="disableMovement($event)"
+      autofocus
     ></textarea>
   </mat-form-field>
 </div>
