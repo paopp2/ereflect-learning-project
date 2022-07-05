@@ -1,1 +1,22 @@
-<mat-toolbar color="primary"> <span>Unggoy Type </span></mat-toolbar>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="left">Unggoy Type</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+      style="float: right"
+    >
+      <mat-icon>info</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+      (click)="goGithub()"
+    >
+      <mat-icon>code</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

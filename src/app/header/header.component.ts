@@ -12,4 +12,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goGithub() {
+    window.location.href='https://github.com/paopp2/ereflect-learning-project';
+  }
+
 }
