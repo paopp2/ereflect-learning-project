@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output, HostListener } from '@angular/core';
-import { InputData } from 'src/app/models/input-data';
+import { InputData } from 'src/app/models/input-data.model';
 import { TypingStatsService } from '../services/typing-stats.service';
 
 @Component({

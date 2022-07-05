@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { InputData } from 'src/app/models/input-data';
+import { InputData } from 'src/app/models/input-data.model';
 @Injectable({
   providedIn: 'root'
 })

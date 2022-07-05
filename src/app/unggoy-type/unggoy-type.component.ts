@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InputData } from '../models/input-data';
+import { InputData } from '../models/input-data.model';
 import { TypingStatsService } from './services/typing-stats.service';
 
 @Component({
