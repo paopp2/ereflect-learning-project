@@ -7,8 +7,8 @@
       rows="10"
       placeholder="Start Typing!"
       [(ngModel)]="statsService.inputText"
+      (input)="onInput({input: textField.value, rawInputEvent: $event})"
       [disabled]="isTypeFinished"
-      (input)="onInput({input: textField.value, inputEvent: $event})"
     ></textarea>
   </mat-form-field>
 </div>

@@ -17,10 +17,10 @@ export class TextInputComponent {
     statsService.stopSubject.subscribe(() => this.isTypeFinished = true);
   }
 
-  onInput(inputEventData: {input: string, inputEvent: any}) {
+  onInput(inputEvent: {input: string, rawInputEvent: any}) {
     this.inputChange.emit({
-      input: inputEventData.input, 
-      keyPressed: inputEventData.inputEvent.data
+      input: inputEvent.input, 
+      keyPressed: inputEvent.rawInputEvent.data
     });
     let audio = new Audio();
     audio.src = '../../../assets/audio/generic.mp3';
