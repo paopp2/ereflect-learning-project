@@ -1,5 +1,5 @@
 <div class="container"></div>
-<h1 style="text-align: center">
+<h1 style="text-align: center" class="timer">
   <span id="stopwatch" style="font-size: 60px">
     {{ statsService.timeInDs | timeDisplay }}
   </span>
@@ -7,18 +7,19 @@
 
 <div style="display: flex">
   <mat-card style="flex: 1 1 auto">
-    <mat-card-title>WPM</mat-card-title>
-    <h3>{{ statsService.wordsPerMin | number:'1.0-0'}}</h3>
+    <mat-card-title>WPM </mat-card-title>
+    <h3>{{ statsService.wordsPerMin | number: "1.0-0" }}</h3>
   </mat-card>
   <mat-card style="flex: 1 1 auto">
     <mat-card-title>Accuracy</mat-card-title>
-    <h3>{{ statsService.accuracy | percent:'1.1-1'}}</h3>
+    <h3>{{ statsService.accuracy | percent: "1.1-1" }}</h3>
   </mat-card>
   <mat-card style="flex: 1 1 auto">
     <mat-card-title>Errors</mat-card-title>
     <h3>{{ statsService.errorCount }}</h3>
   </mat-card>
 </div>
+
 <hr />
 <div id="wrapper">
   <button mat-raised-button color="primary" (click)="onReset()" type="button">
