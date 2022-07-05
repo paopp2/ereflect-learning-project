@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { TypingStatsService } from '../services/typing-stats.service';
 const txtgen = require('txtgen');
 
@@ -8,21 +9,26 @@ const txtgen = require('txtgen');
   styleUrls: ['./text-source.component.css']
 })
 
-export class TextSourceComponent implements OnInit {
+export class TextSourceComponent implements OnInit, OnDestroy {
   @Input() inputText = '';
   @Output() displayTextChange = new EventEmitter<string>();
   displayTextArr: string[] = [];
+  private resetSubscription: Subscription;
 
   constructor(public statsService: TypingStatsService) {
-    statsService.resetSubject.subscribe(() => this.setSentence());
-  }
-
-  get inputTextArr() {
-    return this.inputText.split('')
+    this.resetSubscription = statsService.resetSubject.subscribe(() => this.setSentence());
   }
 
   ngOnInit(): void {
     this.setSentence();
+  }
+
+  ngOnDestroy(): void {
+    this.resetSubscription.unsubscribe();
+  }
+
+  get inputTextArr() {
+    return this.inputText.split('')
   }
 
   setSentence(): void {
