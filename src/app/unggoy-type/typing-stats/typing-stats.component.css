@@ -13,4 +13,16 @@ mat-card {
 
 .timer {
     margin-top: 50px;
+    margin-right: 25px;
 }
+
+.monkeyGif {
+    margin-top: -10px;
+}
+
+#center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+  }

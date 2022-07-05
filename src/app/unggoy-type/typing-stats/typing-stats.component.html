@@ -1,10 +1,27 @@
-<div class="container"></div>
-<h1 style="text-align: center" class="timer">
-  <span id="stopwatch" style="font-size: 60px">
-    {{ statsService.timeInDs | timeDisplay }}
-  </span>
-</h1>
-
+<div class="container">
+  <h1 style="text-align: center" class="timer">
+    <span id="stopwatch" style="font-size: 60px">
+      {{ statsService.timeInDs | timeDisplay }}
+    </span>
+  </h1>
+</div>
+<div *ngIf="statsService.wordsPerMin < 80; then lower; else higher"></div>
+<ng-template #lower
+  ><img
+    src="https://c.tenor.com/ddt1NCaQvPoAAAAM/monkey-cute.gif"
+    width="50"
+    height="50"
+    class="monkeyGif"
+    id="center"
+/></ng-template>
+<ng-template #higher
+  ><img
+    src="https://c.tenor.com/M7V-haVda1MAAAAM/cute-adorable.gif"
+    width="50"
+    height="50"
+    class="monkeyGif"
+    id="center"
+/></ng-template>
 <div style="display: flex">
   <mat-card style="flex: 1 1 auto">
     <mat-card-title>WPM </mat-card-title>
