@@ -7,12 +7,13 @@ h1 {
     align-items: center;
     justify-content: center;
 }
-  
+
 mat-card {
-    margin-top: 50px;
-    margin-left: 40px;
-    margin-right: 40px;
-}
+ 
+    width: 20%;
+    height: 20%;
+    margin: 30px;
+  }
 
 .timer {
     margin-top: 50px;
