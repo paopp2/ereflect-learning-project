@@ -24,4 +24,11 @@ export class UnggoyTypeComponent implements OnInit {
     
     this.statsService.processInput(inputData);
   }
+  
+  resetOnTab(event: any) {
+    if(event.key === "Tab") {
+      this.statsService.reset();
+      event.preventDefault();
+    }
+  }
 }

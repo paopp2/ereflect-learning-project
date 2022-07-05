@@ -12,7 +12,11 @@
       (keydown)="disableMovement($event)"
       onPaste="return false"
       (paste)="handlePaste()"
-      autofocus
     ></textarea>
+
+    <!-- Autofocuses #textField onReset -->
+    <!-- (native autofocus attribute doesn't work) -->
+    {{ textField.focus() }}
+
   </mat-form-field>
 </div>
