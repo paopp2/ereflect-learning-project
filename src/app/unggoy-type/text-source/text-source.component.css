@@ -4,11 +4,12 @@
 }
 
 .untyped {
-    background-color: transparent;
+    color: grey;
 }
 
 .correct {
-    color:green;
+    color:lightgreen;
+    font-weight: bold;
 }
 .wrong-space {
     background-color: rgb(255, 139, 139);
@@ -16,4 +17,5 @@
 
 .wrong {
     color:red;
+    font-weight: bold;
 }
