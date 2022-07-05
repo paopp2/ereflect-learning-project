@@ -27,11 +27,7 @@ export class TextSourceComponent implements OnInit {
 
   setSentence(): void {
     let text: string = '';
-
-    // Find text that fits length requirements
-    while (!(text.length >= 300) && (text.length <= 340)) {
-      text = txtgen.paragraph();
-    }
+    text = txtgen.paragraph(5);
 
     this.displayTextChange.emit(text);
     this.displayTextArr = text.split('');
