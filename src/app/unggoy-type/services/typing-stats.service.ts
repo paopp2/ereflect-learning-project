@@ -1,14 +1,15 @@
 import { Injectable, Inject } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
+import { InputData } from 'src/app/models/input-data';
 @Injectable({
   providedIn: 'root'
 })
 export class TypingStatsService {
+  isRunning: boolean = false;
   inputText: string = '';
   displayText: string = '';
   timeInDs: number = 0;
-  isRunning: boolean = false;
-  private errorCount: number = 0;
+  errorCount: number = 0;
   private interval?: NodeJS.Timeout;
 
   constructor() { }
@@ -46,7 +47,7 @@ export class TypingStatsService {
     this.stopSubject.next(); 
   }
 
-  processInput(inputData: {input: string, keyPressed: string}) {
+  processInput(inputData: InputData) {
     this.inputText = inputData.input;
     const isBackspacePressed = inputData.keyPressed === null;
     const inputLength = this.inputTextArr.length;

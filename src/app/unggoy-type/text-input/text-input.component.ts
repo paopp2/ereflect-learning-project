@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output, HostListener } from '@angular/core';
+import { InputData } from 'src/app/models/input-data';
 import { TypingStatsService } from '../services/typing-stats.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { TypingStatsService } from '../services/typing-stats.service';
   styleUrls: ['./text-input.component.css']
 })
 export class TextInputComponent {
-  @Output() inputChange = new EventEmitter<{input: string, keyPressed: string}>();
+  @Output() inputChange = new EventEmitter<InputData>();
   isTypeFinished = false;
 
   
@@ -16,8 +17,11 @@ export class TextInputComponent {
     statsService.stopSubject.subscribe(() => this.isTypeFinished = true);
   }
 
-  onInput(inputData: {input: string, inputEvent: any}) {
-    this.inputChange.emit({input: inputData.input, keyPressed: inputData.inputEvent.data});
+  onInput(inputEventData: {input: string, inputEvent: any}) {
+    this.inputChange.emit({
+      input: inputEventData.input, 
+      keyPressed: inputEventData.inputEvent.data
+    });
     let audio = new Audio();
     audio.src = '../../../assets/audio/generic.mp3';
     audio.play();
