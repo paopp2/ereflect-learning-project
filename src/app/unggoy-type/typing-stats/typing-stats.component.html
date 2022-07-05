@@ -8,11 +8,15 @@
 <div style="display: flex">
   <mat-card style="flex: 1 1 auto">
     <mat-card-title>WPM</mat-card-title>
-    <h3>{{ (statsService.wordsPerMin | number:'1.2-2') ?? '-' }}</h3>
+    <h3>{{ statsService.wordsPerMin | number:'1.0-0'}}</h3>
   </mat-card>
   <mat-card style="flex: 1 1 auto">
     <mat-card-title>Accuracy</mat-card-title>
-    <h3>{{ statsService.accuracy | percent}}</h3>
+    <h3>{{ statsService.accuracy | percent:'1.1-1'}}</h3>
+  </mat-card>
+  <mat-card style="flex: 1 1 auto">
+    <mat-card-title>Errors</mat-card-title>
+    <h3>{{ statsService.errorCount }}</h3>
   </mat-card>
 </div>
 <hr />

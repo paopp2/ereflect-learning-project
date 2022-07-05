@@ -1,14 +1,15 @@
 import { Injectable, Inject } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
+import { InputData } from 'src/app/models/input-data.model';
 @Injectable({
   providedIn: 'root'
 })
 export class TypingStatsService {
+  isRunning: boolean = false;
   inputText: string = '';
   displayText: string = '';
   timeInDs: number = 0;
-  isRunning: boolean = false;
-  private errorCount: number = 0;
+  errorCount: number = 0;
   private interval?: NodeJS.Timeout;
 
   constructor() { }
@@ -46,13 +47,16 @@ export class TypingStatsService {
     this.stopSubject.next(); 
   }
 
-  processInput(input: string) {
-    this.inputText = input;
+  processInput(inputData: InputData) {
+    this.inputText = inputData.input;
+    const isBackspacePressed = inputData.keyPressed === null;
     const inputLength = this.inputTextArr.length;
     const inputIndex = inputLength - 1;
     const isWrongInput = this.inputTextArr[inputIndex] !== this.displayTextArr[inputIndex];
     
-    if(isWrongInput) {
+    // If last character of input is wrong and backspace
+    // wasn't pressed, increment errorCount
+    if(isWrongInput && !isBackspacePressed) {
       this.errorCount++;
     }
 
@@ -64,12 +68,16 @@ export class TypingStatsService {
   get wordsPerMin(): number {
     const wordCount = this.inputText.split(' ').length;
     const timeInMins = this.timeInDs / 6000;
+    
+    if(timeInMins === 0) return 0; // Avoid division by zero
     return wordCount / timeInMins;
   }
   
   get accuracy(): number {
     const inputLength = this.inputText.length;
     const totalLength = inputLength + this.errorCount;
+    
+    if(totalLength === 0) return 0; // Avoid division by zero
     return inputLength / totalLength;
   }
 }

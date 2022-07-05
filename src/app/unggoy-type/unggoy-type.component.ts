@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InputData } from '../models/input-data.model';
 import { TypingStatsService } from './services/typing-stats.service';
 
 @Component({
@@ -16,11 +17,11 @@ export class UnggoyTypeComponent implements OnInit {
     this.statsService.displayText = text;
   }
 
-  onInput(input: string) {
+  onInput(inputData: InputData) {
     if(!this.statsService.isRunning)  {
       this.statsService.start();
     }
     
-    this.statsService.processInput(input);
+    this.statsService.processInput(inputData);
   }
 }
