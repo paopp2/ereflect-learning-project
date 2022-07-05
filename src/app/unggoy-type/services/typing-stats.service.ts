@@ -64,12 +64,16 @@ export class TypingStatsService {
   get wordsPerMin(): number {
     const wordCount = this.inputText.split(' ').length;
     const timeInMins = this.timeInDs / 6000;
+    
+    if(timeInMins === 0) return 0; // Avoid division by zero
     return wordCount / timeInMins;
   }
   
   get accuracy(): number {
     const inputLength = this.inputText.length;
     const totalLength = inputLength + this.errorCount;
+    
+    if(totalLength === 0) return 0; // Avoid division by zero
     return inputLength / totalLength;
   }
 }
