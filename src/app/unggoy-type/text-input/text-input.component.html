@@ -1,13 +1,14 @@
 <div id="typeBox">
   <mat-form-field appearance="fill">
     <textarea
+      #textField
       matInput
       matTextareaAutosize
       rows="10"
       placeholder="Start Typing!"
       [(ngModel)]="statsService.inputText"
-      (ngModelChange)="onInput($event)"
       [disabled]="isTypeFinished"
+      (input)="onInput({input: textField.value, inputEvent: $event})"
     ></textarea>
   </mat-form-field>
 </div>

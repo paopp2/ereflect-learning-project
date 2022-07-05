@@ -46,8 +46,8 @@ export class TypingStatsService {
     this.stopSubject.next(); 
   }
 
-  processInput(input: string) {
-    this.inputText = input;
+  processInput(inputData: {input: string, keyPressed: string}) {
+    this.inputText = inputData.input;
     const inputLength = this.inputTextArr.length;
     const inputIndex = inputLength - 1;
     const isWrongInput = this.inputTextArr[inputIndex] !== this.displayTextArr[inputIndex];

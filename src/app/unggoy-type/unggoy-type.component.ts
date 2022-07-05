@@ -16,11 +16,11 @@ export class UnggoyTypeComponent implements OnInit {
     this.statsService.displayText = text;
   }
 
-  onInput(input: string) {
+  onInput(inputData: {input: string, keyPressed: string}) {
     if(!this.statsService.isRunning)  {
       this.statsService.start();
     }
     
-    this.statsService.processInput(input);
+    this.statsService.processInput(inputData);
   }
 }

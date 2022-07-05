@@ -7,7 +7,7 @@ import { TypingStatsService } from '../services/typing-stats.service';
   styleUrls: ['./text-input.component.css']
 })
 export class TextInputComponent {
-  @Output() inputChange = new EventEmitter<string>();
+  @Output() inputChange = new EventEmitter<{input: string, keyPressed: string}>();
   isTypeFinished = false;
 
   
@@ -16,8 +16,8 @@ export class TextInputComponent {
     statsService.stopSubject.subscribe(() => this.isTypeFinished = true);
   }
 
-  onInput(input: string) {
-    this.inputChange.emit(input);
+  onInput(inputData: {input: string, inputEvent: any}) {
+    this.inputChange.emit({input: inputData.input, keyPressed: inputData.inputEvent.data});
     let audio = new Audio();
     audio.src = '../../../assets/audio/generic.mp3';
     audio.play();
