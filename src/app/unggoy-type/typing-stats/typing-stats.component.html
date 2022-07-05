@@ -1,6 +1,6 @@
 <div class="container">
-  <h1 style="text-align: center" class="timer">
-    <span id="stopwatch" style="font-size: 60px">
+  <h1 class="timer">
+    <span id="stopwatch">
       {{ statsService.timeInDs | timeDisplay }}
     </span>
   </h1>
@@ -11,6 +11,7 @@
   height="50"
   class="monkeyGif"
   id="center"
+  alt="Lower WPM Monkey"
   *ngIf="statsService.wordsPerMin < 80; else higher"
 />
 <ng-template #higher
@@ -19,10 +20,11 @@
     width="50"
     height="50"
     class="monkeyGif"
+    alt="Higher WPM Monkey"
     id="center"
 /></ng-template>
-<div style="display: flex" class="center">
-  <mat-card style="margin-left: 170px">
+<div class="stats-container">
+  <mat-card class="left-stats-card">
     <mat-card-title>WPM </mat-card-title>
     <h3>{{ statsService.wordsPerMin | number: "1.0-0" }}</h3>
   </mat-card>
