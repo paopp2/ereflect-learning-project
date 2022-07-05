@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TypingStatsService } from '../services/typing-stats.service';
 @Component({
   selector: 'app-typing-stats',

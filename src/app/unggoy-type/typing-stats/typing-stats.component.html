@@ -27,11 +27,11 @@
     <mat-card-title>WPM </mat-card-title>
     <h3>{{ statsService.wordsPerMin | number: "1.0-0" }}</h3>
   </mat-card>
-  <mat-card style="flex: 1 1 auto">
+  <mat-card>
     <mat-card-title>Accuracy</mat-card-title>
     <h3>{{ statsService.accuracy | percent: "1.1-1" }}</h3>
   </mat-card>
-  <mat-card style="flex: 1 1 auto">
+  <mat-card>
     <mat-card-title>Errors</mat-card-title>
     <h3>{{ statsService.errorCount }}</h3>
   </mat-card>
