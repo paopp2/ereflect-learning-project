@@ -38,3 +38,10 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.style-success {
+  color: white;
+  background-color: #3f50b5;
+}
+.style-success .mat-simple-snackbar-action  {
+  color: white;
+}

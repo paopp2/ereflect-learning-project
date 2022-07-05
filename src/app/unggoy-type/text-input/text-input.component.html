@@ -7,9 +7,11 @@
       rows="10"
       placeholder="Start Typing!"
       [(ngModel)]="statsService.inputText"
-      (input)="onInput({input: textField.value, rawInputEvent: $event})"
+      (input)="onInput({ input: textField.value, rawInputEvent: $event })"
       [disabled]="isTypeFinished"
       (keydown)="disableMovement($event)"
+      onPaste="return false"
+      (paste)="handlePaste()"
       autofocus
     ></textarea>
   </mat-form-field>

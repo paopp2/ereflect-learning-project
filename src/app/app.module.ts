@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { TextSourceComponent } from './unggoy-type/text-source/text-source.component';
 import { TextInputComponent } from './unggoy-type/text-input/text-input.component';
@@ -14,6 +14,7 @@ import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 import { TimeDisplayPipe } from './unggoy-type/pipes/time-display.pipe';
 import { TypingStatsComponent } from './unggoy-type/typing-stats/typing-stats.component';
 import { FooterComponent } from './footer/footer.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FooterComponent } from './footer/footer.component';
     MatButtonModule,
     MatToolbarModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
