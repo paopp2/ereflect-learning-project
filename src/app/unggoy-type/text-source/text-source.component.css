@@ -10,6 +10,9 @@
 .correct {
     color:green;
 }
+.wrong-space {
+    background-color: rgb(255, 139, 139);
+}
 
 .wrong {
     color:red;
