@@ -35,3 +35,8 @@ mat-form-field {
 ::ng-deep .mat-form-field.mat-focused .mat-input-element {
     color: #3f50b5;
 }
+
+textarea {
+    cursor: none;
+    pointer-events: none;
+}
