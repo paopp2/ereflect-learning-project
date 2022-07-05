@@ -9,27 +9,7 @@
     }
 }
 
-/************************************************/
-
-/* #topBar {
-    background-color: var(--orange);
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    color: white;
-    padding: 1em;
-}
-
-#topBar a {
-    transition: ease 0.3s;
-    animation: fadeSlideRight ease 1s;
-}
-#topBar a:hover {
-    transform: translateY(4px);
-} */
-
-/************************************************/
-
 body {
     padding: 1em;
 }
+

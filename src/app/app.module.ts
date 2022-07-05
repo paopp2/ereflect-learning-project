@@ -13,7 +13,6 @@ import { HeaderComponent } from './header/header.component';
 import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 import { TimeDisplayPipe } from './unggoy-type/pipes/time-display.pipe';
 import { TypingStatsComponent } from './unggoy-type/typing-stats/typing-stats.component';
-import { FooterComponent } from './footer/footer.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -24,8 +23,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     TextInputComponent,
     HeaderComponent,
     TimeDisplayPipe,
-    TypingStatsComponent,
-    FooterComponent,
+    TypingStatsComponent
   ],
   imports: [
     BrowserModule,
