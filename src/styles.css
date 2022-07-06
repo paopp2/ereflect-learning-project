@@ -9,9 +9,7 @@
   src: url('./assets/fonts/Epilogue.ttf') format('truetype');
 }
 
-#Inconsolata {
-  font-family: Inconsolata;
-}
+
 
 * {
   font-family: 'Epilogue', sans-serif;
