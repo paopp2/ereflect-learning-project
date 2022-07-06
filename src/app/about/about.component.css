@@ -8,3 +8,19 @@
     text-indent: 50px;
     line-height: 2;
 }
+
+.moreText2 {
+    margin-top: 10px;
+    text-indent: 50px;
+    line-height: 2;
+}
+
+.stats-container {
+    display: flex;
+}
+
+mat-card {
+    width: 20%;
+    height: 20%;
+    margin: 30px;
+  }
