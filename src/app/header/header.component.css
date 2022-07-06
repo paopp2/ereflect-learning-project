@@ -5,3 +5,8 @@
 #about-button {
     float: right;
 }
+
+.logo {
+    text-decoration: none; /* no underline */
+    color: white !important;
+}

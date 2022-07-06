@@ -1,19 +1,20 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span class="left">Unggoy Type</span>
+    <span class="left"><a routerLink="/" class="logo">Unggoy Type</a></span>
     <span class="example-spacer"></span>
     <button
       id="about-button"
       mat-icon-button
       class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
+      aria-label="About Icon"
+      [routerLink]="'/about'"
     >
       <mat-icon>info_outline</mat-icon>
     </button>
     <button
       mat-icon-button
       class="example-icon"
-      aria-label="Example icon-button with share icon"
+      aria-label="Github Icon"
       (click)="goGithub()"
     >
       <mat-icon>code</mat-icon>
