@@ -6,6 +6,8 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: -10px;
+    margin-bottom: 20px;
 }
 
 mat-card {
@@ -23,14 +25,10 @@ mat-card {
 
 .monkeyGif {
     margin-top: -10px;
-}
-
-#center {
     display: block;
     margin-left: auto;
     margin-right: auto;
-
-  }
+}
 
 .stats-container {
     display: flex;
