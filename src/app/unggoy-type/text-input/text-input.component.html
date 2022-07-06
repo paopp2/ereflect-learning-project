@@ -4,7 +4,7 @@
       #textField
       matInput
       matTextareaAutosize
-      rows="10"
+      rows="5"
       placeholder="Start Typing!"
       [(ngModel)]="statsService.inputText"
       (input)="onInput({ input: textField.value, rawInputEvent: $event })"
@@ -17,6 +17,5 @@
     <!-- Autofocuses #textField onReset -->
     <!-- (native autofocus attribute doesn't work) -->
     {{ textField.focus() }}
-
   </mat-form-field>
 </div>
