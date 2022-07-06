@@ -1,8 +1,5 @@
 import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
-import {
-  MatSnackBar,
-} from '@angular/material/snack-bar';
-import { MatSnackBarConfig } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { InputData } from 'src/app/models/input-data.model';
 import { TypingStatsService } from '../services/typing-stats.service';
