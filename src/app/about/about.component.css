@@ -1,0 +1,10 @@
+.bigText {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.moreText {
+    margin-top: 20px;
+    text-indent: 50px;
+    line-height: 2;
+}
