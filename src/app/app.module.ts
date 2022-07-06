@@ -14,8 +14,9 @@ import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 import { TimeDisplayPipe } from './unggoy-type/pipes/time-display.pipe';
 import { TypingStatsComponent } from './unggoy-type/typing-stats/typing-stats.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatIconModule} from '@angular/material/icon';
-
+import { MatIconModule } from '@angular/material/icon';
+import { AboutComponent } from './about/about.component';
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import {MatIconModule} from '@angular/material/icon';
     TextInputComponent,
     HeaderComponent,
     TimeDisplayPipe,
-    TypingStatsComponent
+    TypingStatsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatInputModule,
     MatCardModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
