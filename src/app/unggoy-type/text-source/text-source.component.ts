@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TypingStatsService } from '../services/typing-stats.service';
-const txtgen = require('txtgen');
+import { paragraph } from 'txtgen';
 
 @Component({
   selector: 'app-text-source',
@@ -33,7 +33,7 @@ export class TextSourceComponent implements OnInit, OnDestroy {
 
   setSentence(): void {
     let text: string = '';
-    text = txtgen.paragraph(5);
+    text = paragraph(5);
 
     this.displayTextChange.emit(text);
     this.displayTextArr = text.split('');
