@@ -53,6 +53,9 @@ export class TypingStatsService {
     const inputLength = this.inputTextArr.length;
     const inputIndex = inputLength - 1;
     const isWrongInput = this.inputTextArr[inputIndex] !== this.displayTextArr[inputIndex];
+
+    // Start stats service if not yet running  
+    if(!this.isRunning) this.start();
     
     // If last character of input is wrong and backspace
     // wasn't pressed, increment errorCount

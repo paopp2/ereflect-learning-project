@@ -18,10 +18,6 @@ export class UnggoyTypeComponent implements OnInit {
   }
 
   onInput(inputData: InputData) {
-    if(!this.statsService.isRunning)  {
-      this.statsService.start();
-    }
-    
     this.statsService.processInput(inputData);
   }
   
