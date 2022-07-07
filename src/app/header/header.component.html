@@ -1,22 +1,7 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span class="left"><a routerLink="/" class="logo">Unggoy Type</a></span>
-    <span class="example-spacer"></span>
-    <img
-      ngxGravatar
-      src="{{ authService.currentUser?.photoURL }}"
-      alt="User image"
-      class="avatar"
-    />
-    <span
-      *ngIf="authService.currentUser?.displayName; else notLoggedIn"
-      class="helloText"
-      >Hi, {{ authService.currentUser?.displayName }}</span
-    >
-    <ng-template #notLoggedIn>
-      <span> </span>
-    </ng-template>
-
+    <!-- will change about icon -->
     <button
       id="about-button"
       mat-icon-button
@@ -26,6 +11,22 @@
     >
       <mat-icon>info_outline</mat-icon>
     </button>
+    <span class="example-spacer"></span>
+    <img
+      ngxGravatar
+      src="{{ authService.currentUser?.photoURL }}"
+      alt="User image"
+      class="avatar"
+      *ngIf="authService.currentUser"
+    />
+    <span
+      *ngIf="authService.currentUser?.displayName; else notLoggedIn"
+      class="helloText"
+      >Hi, {{ authService.currentUser?.displayName }}</span
+    >
+    <ng-template #notLoggedIn>
+      <span> </span>
+    </ng-template>
     <button
       mat-icon-button
       class="example-icon"
