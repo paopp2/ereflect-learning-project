@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, AfterViewChecked } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { TypingStatsService } from '../services/typing-stats.service';
 import { Switch } from 'src/app/models/switch-type.model';
 
@@ -8,7 +8,7 @@ import { Switch } from 'src/app/models/switch-type.model';
   templateUrl: './options-bar.component.html',
   styleUrls: ['./options-bar.component.css']
 })
-export class OptionsBarComponent implements OnInit, AfterViewChecked {
+export class OptionsBarComponent implements OnInit {
   selectedValue: string = 'mxblack';
 
   switches: Switch[] = [
@@ -17,15 +17,11 @@ export class OptionsBarComponent implements OnInit, AfterViewChecked {
     {value: 'mxblue', viewValue: 'Cherry MX Blues'},
     {value: 'bucklingspring', viewValue: 'Buckling Spring'},
   ];
-  constructor(public statsService: TypingStatsService, private cdRef: ChangeDetectorRef) { }
+  constructor(public statsService: TypingStatsService) { }
 
   ngOnInit() {
   }
   
-  ngAfterViewChecked() {
-    this.cdRef.detectChanges();
-  }
-
   onReset() {
     this.statsService.reset();
   }
