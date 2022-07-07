@@ -10,8 +10,7 @@
       [(ngModel)]="statsService.inputText"
       (input)="onInput({ input: textField.value, rawInputEvent: $event })"
       [disabled]="isTypeFinished"
-      (keydown)="disableMovement($event)"
-      onPaste="return false"
+      (keydown)="onKeydown($event)"
       (paste)="handlePaste()"
     ></textarea>
   </mat-form-field>

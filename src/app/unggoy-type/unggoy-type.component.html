@@ -4,11 +4,18 @@
 
 <div class="container" (keydown)="resetOnTab($event)">
   <app-typing-stats></app-typing-stats>
-  <app-options-bar></app-options-bar>
+
+  <app-switch-options 
+    [(switchType)]="switchType"
+  ></app-switch-options>
+
   <app-text-source
     [inputText]="statsService.inputText"
     (displayTextChange)="onDisplayTextChange($event)"
   ></app-text-source>
 
-  <app-text-input (inputChange)="onInput($event)"></app-text-input>
+  <app-text-input 
+    (inputChange)="onInput($event)"
+    [switchType]="switchType"
+  ></app-text-input>
 </div>

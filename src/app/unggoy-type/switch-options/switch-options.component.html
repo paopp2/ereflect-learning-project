@@ -2,9 +2,9 @@
   <mat-form-field appearance="fill" class="selectBar">
     <mat-label>Switch Type</mat-label>
     <mat-select
-      [(ngModel)]="selectedValue"
       name="switch"
-      (ngModelChange)="getOption()"
+      [ngModel]="switchType"
+      (ngModelChange)="onSwitchSelected($event)"
     >
       <mat-option *ngFor="let switch of switches" [value]="switch.value">
         {{ switch.viewValue }}

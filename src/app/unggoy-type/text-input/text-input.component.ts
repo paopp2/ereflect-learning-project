@@ -1,4 +1,12 @@
-import { Component, ElementRef, EventEmitter, OnDestroy, Output, Renderer2, ViewChild } from '@angular/core';
+import { 
+  Component, 
+  ElementRef, 
+  EventEmitter,
+  Input, 
+  OnDestroy, 
+  Output, 
+  ViewChild
+} from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { InputData } from 'src/app/models/input-data.model';
@@ -10,12 +18,12 @@ import { TypingStatsService } from '../services/typing-stats.service';
   styleUrls: ['./text-input.component.css']
 })
 export class TextInputComponent implements OnDestroy {
-  @Output() inputChange = new EventEmitter<InputData>();
   @ViewChild('textField') textField!: ElementRef;
+  @Input() switchType = 'mxblack';
+  @Output() inputChange = new EventEmitter<InputData>();
   isTypeFinished = false;
   private resetSubscription: Subscription;
   private stopSubscription: Subscription;
-  switchType: string = '';
 
   private configSuccess: MatSnackBarConfig = {
     duration: 2000,
@@ -42,19 +50,22 @@ export class TextInputComponent implements OnDestroy {
   }
 
   onInput(inputEvent: {input: string, rawInputEvent: any}) {
-    this.switchType = this.statsService.getData();
     this.inputChange.emit({
       input: inputEvent.input, 
       keyPressed: inputEvent.rawInputEvent.data
     });
-    let audio = new Audio();
-      audio.src = `../../../assets/audio/${this.switchType}.mp3`;
-      audio.play();
-   
   }
+  
+  onKeydown(event: any) {
+    // Disable lateral cursor movement using arrow keys  
+    if(event.key === "ArrowRight" || event.key === "ArrowLeft") {
+      event.preventDefault();
+      return;
+    }
 
-  disableMovement(event: any){
-    if(event.key === "ArrowRight" || event.key === "ArrowLeft") event.preventDefault();
+    // Play keyboard sound depending on selected switch type
+    let audio = new Audio(`../../../assets/audio/${this.switchType}.mp3`);
+    audio.play();
   }
 
   handlePaste(){
