@@ -38,8 +38,8 @@ export class AuthService {
     });
   }
 
-  logout() {
-    this.fireAuth.signOut();
+  async logout() {
+    await this.fireAuth.signOut();
   }
 
   // Auth logic to run auth providers

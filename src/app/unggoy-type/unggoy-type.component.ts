@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/services/auth.service';
 import { InputData } from '../models/input-data.model';
 import { TypingStatsService } from './services/typing-stats.service';
@@ -38,7 +36,8 @@ export class UnggoyTypeComponent implements OnInit {
   }
   
   logout() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
+    this.authService.logout().then(
+      () => this.router.navigate(['/login'])
+    );
   }
 }
