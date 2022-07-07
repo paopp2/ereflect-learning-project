@@ -5,16 +5,16 @@
     <button
       id="about-button"
       mat-icon-button
-      class="example-icon favorite-icon"
+      class="example-icon favorite-icon about"
       aria-label="About Icon"
       [routerLink]="'/about'"
     >
-      <mat-icon>info_outline</mat-icon>
+      About
     </button>
     <span class="example-spacer"></span>
     <img
       ngxGravatar
-      src="{{ authService.currentUser?.photoURL }}"
+      src="{{ authService.currentUser.photoURL }}"
       alt="User image"
       class="avatar"
       *ngIf="authService.currentUser"
