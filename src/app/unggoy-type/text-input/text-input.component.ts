@@ -11,6 +11,7 @@ import { TypingStatsService } from '../services/typing-stats.service';
 })
 export class TextInputComponent implements OnDestroy {
   @Output() inputChange = new EventEmitter<InputData>();
+  @ViewChild('textField') textField!: ElementRef;
   isTypeFinished = false;
   private resetSubscription: Subscription;
   private stopSubscription: Subscription;
@@ -26,12 +27,11 @@ export class TextInputComponent implements OnDestroy {
   constructor(
     public statsService: TypingStatsService, 
     private snackbar: MatSnackBar,
-    private renderer: Renderer2,
   ) {
     this.resetSubscription = statsService.resetSubject.subscribe(() => {
       this.isTypeFinished = false;
       // Reset focus to textField on reset 
-      renderer.selectRootElement('textField').focus();
+      this.textField.nativeElement.focus();
     });
     this.stopSubscription = statsService.stopSubject.subscribe(() => this.isTypeFinished = true);
   }
