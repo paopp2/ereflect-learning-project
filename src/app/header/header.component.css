@@ -10,3 +10,8 @@
     text-decoration: none; /* no underline */
     color: white !important;
 }
+
+.helloText {
+    font-size: 16px;
+    margin-top: 5px;
+}

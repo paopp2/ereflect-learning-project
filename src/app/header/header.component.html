@@ -2,6 +2,15 @@
   <mat-toolbar-row>
     <span class="left"><a routerLink="/" class="logo">Unggoy Type</a></span>
     <span class="example-spacer"></span>
+    <span
+      *ngIf="authService.currentUser?.displayName; else notLoggedIn"
+      class="helloText"
+      >Hi, {{ authService.currentUser?.displayName }}</span
+    >
+    <ng-template #notLoggedIn>
+      <span> </span>
+    </ng-template>
+
     <button
       id="about-button"
       mat-icon-button
