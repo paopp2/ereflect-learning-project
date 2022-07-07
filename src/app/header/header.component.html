@@ -1,7 +1,15 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span class="left"><a routerLink="/" class="logo">Unggoy Type</a></span>
-    <!-- will change about icon -->
+    <button
+      id="about-button"
+      mat-icon-button
+      class="example-icon favorite-icon about"
+      aria-label="About Icon"
+      [routerLink]="'/'"
+    >
+      Home
+    </button>
     <button
       id="about-button"
       mat-icon-button
@@ -19,15 +27,12 @@
       class="avatar"
       *ngIf="authService.currentUser"
     />
-    <span
-      *ngIf="authService.currentUser?.displayName; else notLoggedIn"
-      class="helloText"
+    <span *ngIf="authService.currentUser?.displayName" class="helloText"
       >Hi, {{ authService.currentUser?.displayName }}</span
     >
-    <ng-template #notLoggedIn> </ng-template>
     <button
       mat-icon-button
-      class="example-icon"
+      class="example-icon logout"
       aria-label="Logout Icon"
       (click)="logout()"
       *ngIf="authService.currentUser"

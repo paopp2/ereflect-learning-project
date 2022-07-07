@@ -14,6 +14,7 @@
 .helloText {
     font-size: 16px;
     margin-top: 5px;
+    margin-right: 5px;
 }
 
 .avatar {
@@ -22,4 +23,8 @@
 
 .about {
     margin-left: 20px;
+}
+
+.logout {
+    margin-right: -10px !important;
 }
