@@ -23,12 +23,6 @@ mat-card {
     width: 20%;
     height: 20%;
     margin: 30px;
+    margin-bottom: 50px;
 }
 
-mat-card img {
-    height: fit-content;
-    max-height: 300px !important; 
-    max-width: 300px;
-    object-fit: cover; 
-    object-position: center; 
-}
