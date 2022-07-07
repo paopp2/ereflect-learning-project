@@ -21,9 +21,11 @@ export class OptionsBarComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
   }
+  
   ngAfterViewChecked() {
     this.cdRef.detectChanges();
-}
+  }
+
   onReset() {
     this.statsService.reset();
   }
