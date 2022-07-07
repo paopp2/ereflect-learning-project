@@ -1,4 +1,12 @@
-import { Component, ElementRef, EventEmitter, Input, OnDestroy, Output, Renderer2, ViewChild } from '@angular/core';
+import { 
+  Component, 
+  ElementRef, 
+  EventEmitter,
+  Input, 
+  OnDestroy, 
+  Output, 
+  ViewChild
+} from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { InputData } from 'src/app/models/input-data.model';
@@ -46,12 +54,18 @@ export class TextInputComponent implements OnDestroy {
       input: inputEvent.input, 
       keyPressed: inputEvent.rawInputEvent.data
     });
+  }
+  
+  onKeydown(event: any) {
+    // Disable lateral cursor movement using arrow keys  
+    if(event.key === "ArrowRight" || event.key === "ArrowLeft") {
+      event.preventDefault();
+      return;
+    }
+
+    // Play keyboard sound depending on selected switch type
     let audio = new Audio(`../../../assets/audio/${this.switchType}.mp3`);
     audio.play();
-  }
-
-  disableMovement(event: any){
-    if(event.key === "ArrowRight" || event.key === "ArrowLeft") event.preventDefault();
   }
 
   handlePaste(){
