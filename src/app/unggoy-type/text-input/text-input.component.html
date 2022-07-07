@@ -2,6 +2,7 @@
   <mat-form-field appearance="fill">
     <textarea
       #textField
+      autofocus
       matInput
       matTextareaAutosize
       rows="5"
@@ -13,9 +14,5 @@
       onPaste="return false"
       (paste)="handlePaste()"
     ></textarea>
-
-    <!-- Autofocuses #textField onReset -->
-    <!-- (native autofocus attribute doesn't work) -->
-    {{ textField.focus() }}
   </mat-form-field>
 </div>

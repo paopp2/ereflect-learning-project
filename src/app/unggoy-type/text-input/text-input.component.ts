@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnDestroy, Output, Renderer2, ViewChild } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { InputData } from 'src/app/models/input-data.model';
@@ -23,8 +23,16 @@ export class TextInputComponent implements OnDestroy {
     verticalPosition: 'bottom',
   };
   
-  constructor(public statsService: TypingStatsService, private snackbar: MatSnackBar) {
-    this.resetSubscription = statsService.resetSubject.subscribe(() => this.isTypeFinished = false);
+  constructor(
+    public statsService: TypingStatsService, 
+    private snackbar: MatSnackBar,
+    private renderer: Renderer2,
+  ) {
+    this.resetSubscription = statsService.resetSubject.subscribe(() => {
+      this.isTypeFinished = false;
+      // Reset focus to textField on reset 
+      renderer.selectRootElement('textField').focus();
+    });
     this.stopSubscription = statsService.stopSubject.subscribe(() => this.isTypeFinished = true);
   }
   
