@@ -2,14 +2,6 @@ h1 {
     text-align: center;
 }
 
-#wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: -10px;
-    margin-bottom: 20px;
-}
-
 mat-card {
     width: 20%;
     height: 20%;

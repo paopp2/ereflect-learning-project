@@ -18,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './footer/footer.component';
+import { OptionsBarComponent } from './unggoy-type/options-bar/options-bar.component';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { FooterComponent } from './footer/footer.component';
     TimeDisplayPipe,
     TypingStatsComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    OptionsBarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { FooterComponent } from './footer/footer.component';
     MatCardModule,
     MatSnackBarModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
