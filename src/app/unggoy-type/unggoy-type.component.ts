@@ -11,6 +11,7 @@ import { TypingStatsService } from './services/typing-stats.service';
   providers: []
 })
 export class UnggoyTypeComponent implements OnInit {
+  switchType = 'mxblack';
 
   constructor(
     public statsService: TypingStatsService,

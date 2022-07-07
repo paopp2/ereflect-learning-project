@@ -11,7 +11,6 @@ export class TypingStatsService {
   timeInDs: number = 0;
   errorCount: number = 0;
   private interval?: NodeJS.Timeout;
-  private switchType: string = 'mxblack';
   
   constructor() { }
   // Signals to subscribe to
@@ -83,13 +82,5 @@ export class TypingStatsService {
     
     if(totalLength === 0) return 0; // Avoid division by zero
     return inputLength / totalLength;
-  }
-
-  setSwitch(input: string){
-    this.switchType = input;
-}
-
-  getData(){
-      return this.switchType;
   }
 }
