@@ -23,7 +23,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FooterComponent } from './footer/footer.component';
-import { OptionsBarComponent } from './unggoy-type/options-bar/options-bar.component';
+import { SwitchOptionsComponent } from './unggoy-type/switch-options/switch-options.component';
 import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { MatSelectModule } from '@angular/material/select';
     AboutComponent,
     AuthComponent,
     FooterComponent,
-    OptionsBarComponent
+    SwitchOptionsComponent
   ],
   imports: [
     BrowserModule,

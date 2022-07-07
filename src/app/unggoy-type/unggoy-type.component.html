@@ -5,9 +5,9 @@
 <div class="container" (keydown)="resetOnTab($event)">
   <app-typing-stats></app-typing-stats>
 
-  <app-options-bar 
+  <app-switch-options 
     [(switchType)]="switchType"
-  ></app-options-bar>
+  ></app-switch-options>
 
   <app-text-source
     [inputText]="statsService.inputText"

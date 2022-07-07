@@ -9,11 +9,11 @@ import { TypingStatsService } from '../services/typing-stats.service';
 import { Switch } from 'src/app/models/switch-type.model';
 
 @Component({
-  selector: 'app-options-bar',
-  templateUrl: './options-bar.component.html',
-  styleUrls: ['./options-bar.component.css']
+  selector: 'app-switch-options',
+  templateUrl: './switch-options.component.html',
+  styleUrls: ['./switch-options.component.css']
 })
-export class OptionsBarComponent implements OnInit {
+export class SwitchOptionsComponent implements OnInit {
   @Input() switchType: string = 'mxblack';
   @Output() switchTypeChange = new EventEmitter<string>();
 
