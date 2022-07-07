@@ -1,0 +1,20 @@
+.example-card{
+    display:inline-block;
+}
+
+.main-div{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-center{
+    margin-left: 35px !important;
+    margin-top: -10px !important;
+    margin-bottom: 10px !important;
+}
+
+.title{
+    margin-left: -25px;
+}

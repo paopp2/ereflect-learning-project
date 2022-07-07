@@ -1,2 +1,24 @@
-<p>Please login.</p>
-<button (click)="loginWithGoogle()">Login with Google</button>
+<div class="main-div">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div class="login-box-header" class="title">
+        <mat-card-title>Login to your account</mat-card-title>
+      </div>
+    </mat-card-header>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="basic"
+        class="btn-center"
+        (click)="loginWithGoogle()"
+      >
+        <img
+          src="../../../assets/icons/google-icon.png"
+          width="20"
+          height="20"
+        />
+        Login via Google
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
