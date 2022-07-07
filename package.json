@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
     "bootstrap": "^3.4.1",
+    "ngx-gravatar": "^13.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "txtgen": "^2.2.8",

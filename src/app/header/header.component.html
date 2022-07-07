@@ -2,6 +2,12 @@
   <mat-toolbar-row>
     <span class="left"><a routerLink="/" class="logo">Unggoy Type</a></span>
     <span class="example-spacer"></span>
+    <img
+      ngxGravatar
+      src="{{ authService.currentUser?.photoURL }}"
+      alt="User image"
+      class="avatar"
+    />
     <span
       *ngIf="authService.currentUser?.displayName; else notLoggedIn"
       class="helloText"

@@ -25,6 +25,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FooterComponent } from './footer/footer.component';
 import { SwitchOptionsComponent } from './unggoy-type/switch-options/switch-options.component';
 import { MatSelectModule } from '@angular/material/select';
+import { GravatarModule } from 'ngx-gravatar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { MatSelectModule } from '@angular/material/select';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    MatSelectModule
+    MatSelectModule,
+    GravatarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
