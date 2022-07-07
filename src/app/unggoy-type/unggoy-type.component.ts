@@ -35,10 +35,5 @@ export class UnggoyTypeComponent implements OnInit {
       event.preventDefault();
     }
   }
-  
-  logout() {
-    this.authService.logout().then(
-      () => this.router.navigate(['/login'])
-    );
-  }
+
 }

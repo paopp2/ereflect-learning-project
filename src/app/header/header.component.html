@@ -28,5 +28,15 @@
     >
       <mat-icon>code</mat-icon>
     </button>
+
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Logout Icon"
+      (click)="logout()"
+      *ngIf="authService.currentUser"
+    >
+      <mat-icon>logout</mat-icon>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
