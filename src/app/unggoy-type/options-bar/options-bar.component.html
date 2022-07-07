@@ -1,5 +1,5 @@
 <div id="wrapper">
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="fill" class="selectBar">
     <mat-label>Switch Type</mat-label>
     <mat-select
       [(ngModel)]="selectedValue"
@@ -11,7 +11,13 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="onReset()" type="button">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onReset()"
+    type="button"
+    class="btn"
+  >
     Reset
   </button>
 </div>
