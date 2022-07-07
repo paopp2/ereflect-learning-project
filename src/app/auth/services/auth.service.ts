@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   User,
   authState,
+  UserCredential,
 } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 
@@ -23,8 +24,18 @@ export class AuthService {
   }
 
   // Sign in with Google
-  loginWithGoogle() {
-    return this.loginWithProvider(new GoogleAuthProvider());
+  loginWithGoogle(callback: {
+    onSuccess?: (userCreds: UserCredential) => void, 
+    onError?: (error: any) => void,
+  }) {
+    return this.loginWithProvider(new GoogleAuthProvider())
+    .then((userCreds: UserCredential | unknown) => {
+      if(!(userCreds instanceof Error)) {
+        if(callback.onSuccess) callback.onSuccess(userCreds as UserCredential);
+      } else {
+        if(callback.onError) callback.onError(userCreds);
+      }
+    });
   }
 
   logout() {
@@ -32,12 +43,11 @@ export class AuthService {
   }
 
   // Auth logic to run auth providers
-  private async loginWithProvider(provider: AuthProvider) {
+  private async loginWithProvider(provider: AuthProvider): Promise<UserCredential | Error> {
     try {
-      const result = await signInWithPopup(this.fireAuth, provider);
-      return console.log(`Successful result: ${result}`);
+      return await signInWithPopup(this.fireAuth, provider);
     } catch (error) {
-      return console.log(`Error: ${error}`);
+      return new Error(`${error}`);
     }
   }
 }
