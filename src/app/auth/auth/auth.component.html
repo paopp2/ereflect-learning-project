@@ -1,8 +1,8 @@
-<div *ngIf="user$ | async as user; else showLogin">
+<div *ngIf="authService.user$ | async as user; else showLogin">
     <h1>Hello {{ user.displayName }}!</h1>
-    <button (click)="logout()">Logout</button>
+    <button (click)="authService.logout()">Logout</button>
 </div>
 <ng-template #showLogin>
     <p>Please login.</p>
-    <button (click)="loginWithGoogle()">Login with Google</button>
+    <button (click)="authService.loginWithGoogle()">Login with Google</button>
 </ng-template>
