@@ -13,11 +13,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  goGithub() {
-    window.location.href='https://github.com/paopp2/ereflect-learning-project';
-  }
-
   logout() {
     this.authService.logout().then(
       () => this.router.navigate(['/login'])

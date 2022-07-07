@@ -24,18 +24,7 @@
       class="helloText"
       >Hi, {{ authService.currentUser?.displayName }}</span
     >
-    <ng-template #notLoggedIn>
-      <span> </span>
-    </ng-template>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Github Icon"
-      (click)="goGithub()"
-    >
-      <mat-icon>code</mat-icon>
-    </button>
-
+    <ng-template #notLoggedIn> </ng-template>
     <button
       mat-icon-button
       class="example-icon"
