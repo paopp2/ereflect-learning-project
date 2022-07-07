@@ -14,6 +14,7 @@ export class TextInputComponent implements OnDestroy {
   isTypeFinished = false;
   private resetSubscription: Subscription;
   private stopSubscription: Subscription;
+  switchType: string = '';
 
   private configSuccess: MatSnackBarConfig = {
     duration: 2000,
@@ -33,13 +34,15 @@ export class TextInputComponent implements OnDestroy {
   }
 
   onInput(inputEvent: {input: string, rawInputEvent: any}) {
+    this.switchType = this.statsService.getData();
     this.inputChange.emit({
       input: inputEvent.input, 
       keyPressed: inputEvent.rawInputEvent.data
     });
     let audio = new Audio();
-    audio.src = '../../../assets/audio/generic.mp3';
-    audio.play();
+      audio.src = `../../../assets/audio/${this.switchType}.mp3`;
+      audio.play();
+   
   }
 
   disableMovement(event: any){

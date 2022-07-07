@@ -22,6 +22,9 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { FooterComponent } from './footer/footer.component';
+import { OptionsBarComponent } from './unggoy-type/options-bar/options-bar.component';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     TimeDisplayPipe,
     TypingStatsComponent,
     AboutComponent,
-    AuthComponent
+    AuthComponent,
+    FooterComponent,
+    OptionsBarComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
