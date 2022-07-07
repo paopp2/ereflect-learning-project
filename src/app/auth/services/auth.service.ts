@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { 
   Auth, 
   AuthProvider, 
@@ -8,19 +8,23 @@ import {
   authState,
   UserCredential,
 } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  user$: Observable<User | null>;
+export class AuthService implements OnDestroy {
+  private authStateSubscription: Subscription;
+  currentUser: User | null = null;
 
   constructor(public fireAuth: Auth) { 
-    this.user$ = authState(fireAuth);
+    this.authStateSubscription = authState(fireAuth).subscribe(
+      (user) => this.currentUser = user
+    );
   }
 
-  ngOnInit(): void {
+  ngOnDestroy(): void {
+    this.authStateSubscription.unsubscribe();
   }
 
   // Sign in with Google

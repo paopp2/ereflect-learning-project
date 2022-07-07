@@ -14,7 +14,7 @@ export class UnggoyTypeComponent implements OnInit {
 
   constructor(
     public statsService: TypingStatsService,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
   ) { }
 

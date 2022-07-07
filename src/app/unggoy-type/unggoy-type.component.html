@@ -1,3 +1,6 @@
+<h1>User: {{ authService.currentUser?.displayName }}</h1>
+<img [src]="authService.currentUser?.photoURL" alt="User image">
+
 <div class="container" (keydown)="resetOnTab($event)">
   <app-typing-stats></app-typing-stats>
 
