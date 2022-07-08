@@ -23,7 +23,6 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup, formGroupDirective: FormGroupDirective) {
-    //console.log(form.value);
     this.emailService.sendEmail(form);
     formGroupDirective.resetForm();
   }
