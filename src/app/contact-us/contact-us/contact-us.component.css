@@ -14,8 +14,16 @@ mat-card {
     margin-bottom: 20px;
 }
 
-.btn-center{
-    margin-left: 35px !important;
-    margin-top: -10px !important;
-    margin-bottom: 10px !important;
+.mainForm {
+    margin: 20px;
+}
+
+.title_center {
+    display: flex !important;
+    justify-content: center !important; /* align horizontal */
+    align-items: center !important; /* align vertical */
+}
+
+.contactcard {
+    margin: 10px;
 }

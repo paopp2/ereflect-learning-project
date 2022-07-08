@@ -1,20 +1,21 @@
 <div class="main-div">
-  <mat-card class="example-card">
+  <mat-card class="example-card" style="text-align: center">
     <mat-card-header>
-      <div class="login-box-header" class="title">
-        <mat-card-title>Contact Us</mat-card-title>
-      </div>
+      <mat-card-title>Contact Us</mat-card-title>
+      <mat-card-subtitle
+        >If you have any questions, don't hesitate to ask.</mat-card-subtitle
+      >
     </mat-card-header>
-
+    <img
+      src="https://images.unsplash.com/photo-1559030623-0226b1241edd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvbnRhY3QlMjB1c3xlbnwwfHwwfHw%3D&w=1000&q=80"
+      height="190"
+      width="350"
+      class="contactcard"
+    />
     <mat-card-content>
-      <img
-        src="https://images.unsplash.com/photo-1559030623-0226b1241edd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvbnRhY3QlMjB1c3xlbnwwfHwwfHw%3D&w=1000&q=80"
-        height="250"
-        width="500"
-      />
-      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" class="mainForm">
         <div>
-          <mat-form-field appearance="standard">
+          <mat-form-field appearance="standard" [style.width.%]="100">
             <mat-label>Name</mat-label>
             <input matInput formControlName="name" />
             <mat-error
@@ -24,7 +25,7 @@
           </mat-form-field>
         </div>
         <div>
-          <mat-form-field appearance="standard">
+          <mat-form-field appearance="standard" [style.width.%]="100">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" />
             <mat-error
@@ -36,12 +37,17 @@
           </mat-form-field>
         </div>
         <div>
-          <mat-form-field class="example-full-width" appearance="standard">
+          <mat-form-field
+            class="example-full-width"
+            appearance="standard"
+            [style.width.%]="100"
+          >
             <mat-label>Leave a message</mat-label>
             <textarea
               matInput
               placeholder="Your message"
               formControlName="message"
+              rows="5"
             ></textarea>
           </mat-form-field>
         </div>
@@ -49,7 +55,6 @@
           <button
             mat-raised-button
             color="primary"
-            class="btn-center"
             type="submit"
             [disabled]="myForm.invalid"
           >
