@@ -1,5 +1,5 @@
 
 export interface InputData {
-    input: string,
-    keyPressed: string
+    input: string;
+    keyPressed: string;
 }
