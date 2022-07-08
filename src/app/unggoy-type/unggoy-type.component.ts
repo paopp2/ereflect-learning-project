@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from '../auth/services/auth.service';
 import { InputData } from '../models/input-data.model';
 import { TypingStatsService } from './services/typing-stats.service';
@@ -16,7 +15,6 @@ export class UnggoyTypeComponent implements OnInit {
   constructor(
     public statsService: TypingStatsService,
     public authService: AuthService,
-    private router: Router,
   ) { }
 
   ngOnInit() { }
