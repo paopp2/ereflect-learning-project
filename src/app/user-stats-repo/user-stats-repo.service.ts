@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FirestoreHelper } from '../firestore/firestore-helper.service';
-import { UserStats } from '../models/user/user-stats.model';
+import { UserStats } from '../models/user-stats.model';
 
 @Injectable({
   providedIn: 'root'
