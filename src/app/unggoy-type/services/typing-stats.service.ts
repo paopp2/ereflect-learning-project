@@ -24,7 +24,7 @@ export class TypingStatsService {
   // Signals to subscribe to
   public start$ = this.startSubject.asObservable();
   public reset$ = this.resetSubject.asObservable();
-  public stop$ = this.resetSubject.asObservable();
+  public stop$ = this.stopSubject.asObservable();
 
   get inputTextArr(): string[] { return this.inputText.split('') }
   get displayTextArr(): string[] { return this.displayText.split('') }
