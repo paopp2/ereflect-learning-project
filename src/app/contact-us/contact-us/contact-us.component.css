@@ -20,8 +20,8 @@ mat-card {
 
 .title_center {
     display: flex !important;
-    justify-content: center !important; /* align horizontal */
-    align-items: center !important; /* align vertical */
+    justify-content: center !important; 
+    align-items: center !important; 
 }
 
 .contactcard {
