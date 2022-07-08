@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
+import { EmailService } from './services/email.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -11,7 +12,7 @@ export class ContactUsComponent implements OnInit {
   requiredMessage: string = 'This field is required!';
   emailValidityMessage: string = 'Please enter a valid email!';
 
-  constructor() { }
+  constructor(private emailService: EmailService) { }
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
@@ -22,7 +23,8 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup, formGroupDirective: FormGroupDirective) {
-    console.log(form.value);
+    //console.log(form.value);
+    this.emailService.sendEmail(form);
     formGroupDirective.resetForm();
   }
 
