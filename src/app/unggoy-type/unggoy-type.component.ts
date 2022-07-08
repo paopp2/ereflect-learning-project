@@ -41,6 +41,7 @@ export class UnggoyTypeComponent implements OnInit, OnDestroy {
   }
   
   ngOnDestroy(): void {
+    this.statsService.reset();
     this.userStatsSubscription?.unsubscribe();
   }
 
