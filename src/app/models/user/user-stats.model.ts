@@ -1,4 +1,5 @@
 
 export interface UserStats {
-    highScore?: number;
+    highestWpm: number;
+    fastestTime: number;
 }
