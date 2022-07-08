@@ -28,6 +28,22 @@ export class UserStatsRepoService {
       merge: true,
     });
   }
+  
+  async updateHighestWpm(userId: string, newHighestWpm: number) {
+    return await this.dbHelper.setDoc({
+      path: `user_stats/${userId}`,
+      data: { highestWpm: newHighestWpm },
+      merge: true,
+    });
+  }
+
+  async updateFastestTime(userId: string, newFastestTime: number) {
+    return await this.dbHelper.setDoc({
+      path: `user_stats/${userId}`,
+      data: { fastestTime: newFastestTime },
+      merge: true,
+    });
+  }
 
   getUserStats(userId: string): Observable<UserStats | null> {
     return this.dbHelper.getDocObservable({

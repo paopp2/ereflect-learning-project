@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { InputData } from 'src/app/models/input-data.model';
 import { UserStats } from 'src/app/models/user-stats.model';
+import { UserStatsRepoService } from 'src/app/user-stats-repo/user-stats-repo.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,8 @@ export class TypingStatsService {
   errorCount: number = 0;
   private interval?: NodeJS.Timeout;
   
-  constructor() { }
+  constructor(private userStatsRepo: UserStatsRepoService) { }
+
   // Signals to subscribe to
   public startSubject = new Subject<void>();
   public resetSubject = new Subject<void>();
@@ -32,8 +34,14 @@ export class TypingStatsService {
     this.startSubject.next(); 
   }
 
+  clearState() {
+    clearInterval(this.interval);
+    this.interval = undefined;
+    this.isRunning = false;
+  }
+
   reset() {
-    this.stop();
+    this.clearState();
     this.errorCount = 0;
     this.timeInDs = 0;
     this.inputText = '';
@@ -42,13 +50,27 @@ export class TypingStatsService {
   }
 
   stop() { 
-    clearInterval(this.interval);
-    this.interval = undefined;
+    const stats = this.currentUserStats;
+    const highestWpm = stats.highestWpm;
+    if(highestWpm < this.wordsPerMin) {
+      this.userStatsRepo.updateHighestWpm(
+        stats.id,
+        this.wordsPerMin,
+      );
+    }
 
-    this.isRunning = false;
+    const fastestTime = stats.fastestTime;
+    if(fastestTime == -1 || this.currentUserStats.fastestTime > this.timeInDs) {
+      this.userStatsRepo.updateFastestTime(
+        stats.id,
+        this.timeInDs,
+      );
+    }
+    
+    this.clearState();
     this.stopSubject.next(); 
   }
-
+  
   processInput(inputData: InputData) {
     this.inputText = inputData.input;
     const isBackspacePressed = inputData.keyPressed === null;
