@@ -1,45 +1,62 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-  <div>
-    <label>
-      Name:
-      <input
-        formControlName="name"
-        placeholder="Your name"
-        class="form-control"
+<div class="main-div">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div class="login-box-header" class="title">
+        <mat-card-title>Contact Us</mat-card-title>
+      </div>
+    </mat-card-header>
+
+    <mat-card-content>
+      <img
+        src="https://images.unsplash.com/photo-1559030623-0226b1241edd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvbnRhY3QlMjB1c3xlbnwwfHwwfHw%3D&w=1000&q=80"
+        height="250"
+        width="500"
       />
-    </label>
-    <span
-      *ngIf="!myForm.get('name')?.valid && myForm.get('name')?.touched"
-      class="help-block"
-    >
-      <span *ngIf="myForm.get('name')?.errors">{{ requiredMessage }}</span>
-    </span>
-  </div>
-  <div>
-    <label>
-      Email:
-      <input
-        formControlName="email"
-        placeholder="Your email"
-        class="form-control"
-      />
-    </label>
-    <span
-      *ngIf="!myForm.get('email')?.valid && myForm.get('email')?.touched"
-      class="help-block"
-    >
-      {{ emailValidityMessage }}
-    </span>
-  </div>
-  <div>
-    <label>
-      Message:
-      <input
-        formControlName="message"
-        placeholder="Your message"
-        class="form-control"
-      />
-    </label>
-  </div>
-  <button type="submit" [disabled]="myForm.invalid">Send</button>
-</form>
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+        <div>
+          <mat-form-field appearance="standard">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" />
+            <mat-error
+              *ngIf="!myForm.get('name')?.valid && myForm.get('name')?.touched"
+              >{{ requiredMessage }}</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="standard">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+            <mat-error
+              *ngIf="
+                !myForm.get('email')?.valid && myForm.get('email')?.touched
+              "
+              >{{ emailValidityMessage }}</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width" appearance="standard">
+            <mat-label>Leave a message</mat-label>
+            <textarea
+              matInput
+              placeholder="Your message"
+              formControlName="message"
+            ></textarea>
+          </mat-form-field>
+        </div>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            class="btn-center"
+            type="submit"
+            [disabled]="myForm.invalid"
+          >
+            Send
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

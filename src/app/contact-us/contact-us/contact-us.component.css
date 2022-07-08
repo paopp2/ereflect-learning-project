@@ -1,3 +1,22 @@
-input.ng-invalid.ng-touched{
-    border: 3px solid red;
+
+.example-card{
+    display:inline-block;
+}
+
+.main-div{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+mat-card {
+    margin-bottom: 20px;
+}
+
+.btn-center{
+    margin-left: 35px !important;
+    margin-top: -10px !important;
+    margin-bottom: 10px !important;
 }

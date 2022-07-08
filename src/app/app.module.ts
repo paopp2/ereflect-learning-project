@@ -28,6 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { GravatarModule } from 'ngx-gravatar';
 import { ContactUsComponent } from './contact-us/contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     provideFirestore(() => getFirestore()),
     MatSelectModule,
     GravatarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
