@@ -1,10 +1,9 @@
-
 .example-card{
     display:inline-block;
 }
 
 .main-div{
-    height: 90vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
