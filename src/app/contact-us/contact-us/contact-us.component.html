@@ -49,6 +49,12 @@
               formControlName="message"
               rows="5"
             ></textarea>
+            <mat-error
+              *ngIf="
+                !myForm.get('message')?.valid && myForm.get('message')?.touched
+              "
+              >{{ requiredMessage }}</mat-error
+            >
           </mat-form-field>
         </div>
         <mat-card-actions>
