@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-us',
@@ -10,6 +10,7 @@ export class ContactUsComponent implements OnInit {
   myForm!: FormGroup;
   requiredMessage: string = 'This field is required!';
   emailValidityMessage: string = 'Please enter a valid email!';
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,11 +21,12 @@ export class ContactUsComponent implements OnInit {
     });
   }
 
-  onSubmit(form: FormGroup) {
+  onSubmit(form: FormGroup, formGroupDirective: FormGroupDirective) {
     console.log('Valid?', form.valid); // true or false
     console.log('Name', form.value.name);
     console.log('Email', form.value.email);
     console.log('Message', form.value.message);
+    formGroupDirective.resetForm();
   }
 
 }

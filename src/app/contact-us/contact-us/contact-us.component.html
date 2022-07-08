@@ -13,7 +13,12 @@
       class="contactcard"
     />
     <mat-card-content>
-      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" class="mainForm">
+      <form
+        [formGroup]="myForm"
+        (ngSubmit)="onSubmit(myForm, formGroupDirective)"
+        class="mainForm"
+        #formGroupDirective="ngForm"
+      >
         <div>
           <mat-form-field appearance="standard" [style.width.%]="100">
             <mat-label>Name</mat-label>
