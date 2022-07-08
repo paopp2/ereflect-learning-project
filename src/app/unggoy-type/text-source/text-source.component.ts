@@ -16,7 +16,7 @@ export class TextSourceComponent implements OnInit, OnDestroy {
   private resetSubscription: Subscription;
 
   constructor(public statsService: TypingStatsService) {
-    this.resetSubscription = statsService.resetSubject.subscribe(() => this.setSentence());
+    this.resetSubscription = statsService.reset$.subscribe(() => this.setSentence());
   }
 
   ngOnInit(): void {

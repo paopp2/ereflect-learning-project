@@ -36,12 +36,12 @@ export class TextInputComponent implements OnDestroy {
     public statsService: TypingStatsService, 
     private snackbar: MatSnackBar,
   ) {
-    this.resetSubscription = statsService.resetSubject.subscribe(() => {
+    this.resetSubscription = statsService.reset$.subscribe(() => {
       this.isTypeFinished = false;
       // Reset focus to textField on reset 
       this.textField.nativeElement.focus();
     });
-    this.stopSubscription = statsService.stopSubject.subscribe(() => this.isTypeFinished = true);
+    this.stopSubscription = statsService.stop$.subscribe(() => this.isTypeFinished = true);
   }
   
   ngOnDestroy(): void {

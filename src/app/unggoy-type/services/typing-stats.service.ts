@@ -17,13 +17,23 @@ export class TypingStatsService {
   
   constructor(private userStatsRepo: UserStatsRepoService) { }
 
+  private startSubject = new Subject<void>();
+  private resetSubject = new Subject<void>();
+  private stopSubject = new Subject<void>();
+  
   // Signals to subscribe to
-  public startSubject = new Subject<void>();
-  public resetSubject = new Subject<void>();
-  public stopSubject = new Subject<void>();
+  public start$ = this.startSubject.asObservable();
+  public reset$ = this.resetSubject.asObservable();
+  public stop$ = this.resetSubject.asObservable();
 
   get inputTextArr(): string[] { return this.inputText.split('') }
   get displayTextArr(): string[] { return this.displayText.split('') }
+
+  clearState() {
+    clearInterval(this.interval);
+    this.interval = undefined;
+    this.isRunning = false;
+  }
 
   start() { 
     this.isRunning = true;
@@ -32,12 +42,6 @@ export class TypingStatsService {
       this.interval = setInterval(() => this.timeInDs++, 10);
     }
     this.startSubject.next(); 
-  }
-
-  clearState() {
-    clearInterval(this.interval);
-    this.interval = undefined;
-    this.isRunning = false;
   }
 
   reset() {
