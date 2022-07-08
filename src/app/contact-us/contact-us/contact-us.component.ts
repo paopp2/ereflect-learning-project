@@ -22,10 +22,7 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup, formGroupDirective: FormGroupDirective) {
-    console.log('Valid?', form.valid); // true or false
-    console.log('Name', form.value.name);
-    console.log('Email', form.value.email);
-    console.log('Message', form.value.message);
+    console.log(form.value);
     formGroupDirective.resetForm();
   }
 
