@@ -1,0 +1,45 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  <div>
+    <label>
+      Name:
+      <input
+        formControlName="name"
+        placeholder="Your name"
+        class="form-control"
+      />
+    </label>
+    <span
+      *ngIf="!myForm.get('name')?.valid && myForm.get('name')?.touched"
+      class="help-block"
+    >
+      <span *ngIf="myForm.get('name')?.errors">{{ requiredMessage }}</span>
+    </span>
+  </div>
+  <div>
+    <label>
+      Email:
+      <input
+        formControlName="email"
+        placeholder="Your email"
+        class="form-control"
+      />
+    </label>
+    <span
+      *ngIf="!myForm.get('email')?.valid && myForm.get('email')?.touched"
+      class="help-block"
+    >
+      {{ emailValidityMessage }}
+    </span>
+  </div>
+  <div>
+    <label>
+      Message:
+      <input
+        formControlName="message"
+        placeholder="Your message"
+        class="form-control"
+      />
+    </label>
+  </div>
+  <button type="submit" [disabled]="myForm.invalid">Send</button>
+</form>

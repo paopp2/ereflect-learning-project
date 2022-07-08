@@ -26,6 +26,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SwitchOptionsComponent } from './unggoy-type/switch-options/switch-options.component';
 import { MatSelectModule } from '@angular/material/select';
 import { GravatarModule } from 'ngx-gravatar';
+import { ContactUsComponent } from './contact-us/contact-us/contact-us.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { GravatarModule } from 'ngx-gravatar';
     AboutComponent,
     AuthComponent,
     FooterComponent,
-    SwitchOptionsComponent
+    SwitchOptionsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { GravatarModule } from 'ngx-gravatar';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     MatSelectModule,
-    GravatarModule
+    GravatarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
