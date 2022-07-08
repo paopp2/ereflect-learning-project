@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription, take } from 'rxjs';
 import { AuthService } from '../auth/services/auth.service';
 import { InputData } from '../models/input-data.model';
+import { UserStats } from '../models/user-stats.model';
 import { UserStatsRepoService } from '../user-stats-repo/user-stats-repo.service';
 import { TypingStatsService } from './services/typing-stats.service';
 
@@ -11,8 +12,10 @@ import { TypingStatsService } from './services/typing-stats.service';
   styleUrls: ['./unggoy-type.component.css'],
   providers: []
 })
-export class UnggoyTypeComponent implements OnInit {
+export class UnggoyTypeComponent implements OnInit, OnDestroy {
+  currentUserStats!: UserStats;
   switchType = 'mxblack';
+  private userStatsSubscription?: Subscription;
 
   constructor(
     public statsService: TypingStatsService,
@@ -20,17 +23,25 @@ export class UnggoyTypeComponent implements OnInit {
     private userStatsRepo: UserStatsRepoService,
   ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     const currentUser = this.authService.currentUser;
-    if(currentUser) {
+    if (currentUser) {
       const uid = currentUser.uid;
-      this.userStatsRepo.getUserStats(uid)
-        .pipe(take(1))
+      this.userStatsSubscription = this.userStatsRepo.getUserStats(uid)
         .subscribe((userStats) => {
-          // Initialize if user has no stats data yet
-          if(!userStats) this.userStatsRepo.initUserStats(uid);
+          if (!userStats) {
+            // Initialize if user has no stats data yet
+            this.userStatsRepo.initUserStats(uid)
+            return;
+          };
+          
+          this.statsService.currentUserStats = userStats;
         });
     }
+  }
+  
+  ngOnDestroy(): void {
+    this.userStatsSubscription?.unsubscribe();
   }
 
   onDisplayTextChange(text: string) {
@@ -40,9 +51,9 @@ export class UnggoyTypeComponent implements OnInit {
   onInput(inputData: InputData) {
     this.statsService.processInput(inputData);
   }
-  
+
   resetOnTab(event: any) {
-    if(event.key === "Tab") {
+    if (event.key === "Tab") {
       this.statsService.reset();
       event.preventDefault();
     }

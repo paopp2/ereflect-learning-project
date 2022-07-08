@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { InputData } from 'src/app/models/input-data.model';
+import { UserStats } from 'src/app/models/user-stats.model';
 @Injectable({
   providedIn: 'root'
 })
 export class TypingStatsService {
+  currentUserStats!: UserStats;
   isRunning: boolean = false;
   inputText: string = '';
   displayText: string = '';
