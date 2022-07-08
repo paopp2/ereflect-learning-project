@@ -4,11 +4,11 @@ import {
   AuthProvider, 
   GoogleAuthProvider,
   signInWithPopup,
-  User,
   authState,
   UserCredential,
 } from '@angular/fire/auth';
 import { Subscription } from 'rxjs';
+import { User } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,20 @@ export class AuthService implements OnDestroy {
 
   constructor(public fireAuth: Auth) { 
     this.authStateSubscription = authState(fireAuth).subscribe(
-      (user) => this.currentUser = user
+      (user) => {
+        if(!user) {
+          this.currentUser = null;
+          return;
+        }
+        
+        this.currentUser = <User>{
+          id: user.uid,
+          displayName: user.displayName,
+          email: user.email,
+          phoneNumber: user.phoneNumber,
+          photoUrl: user.photoURL,
+        };
+      },
     );
   }
 

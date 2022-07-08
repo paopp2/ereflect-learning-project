@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FirestoreHelper } from '../firestore/firestore-helper.service';
 import { UserStats } from '../models/user-stats.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,20 +11,19 @@ export class UserStatsRepoService {
 
   constructor(private dbHelper: FirestoreHelper) { }
   
-  async initUserStats(userId: string) {
+  async initUserStats(user: User) {
     await this.pushUserStats(
-      userId,
       <UserStats>{
-        id: userId,
+        user: user,
         highestWpm: -1,
         fastestTime: -1,
       },
     );
   }
   
-  async pushUserStats(userId: string, userStats: UserStats) {
+  async pushUserStats(userStats: UserStats) {
     return await this.dbHelper.setDoc({
-      path: `user_stats/${userId}`,
+      path: `user_stats/${userStats.user.id}`,
       data: userStats,
       merge: true,
     });

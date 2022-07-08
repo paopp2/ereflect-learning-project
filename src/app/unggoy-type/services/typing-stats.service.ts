@@ -58,7 +58,7 @@ export class TypingStatsService {
     const highestWpm = stats.highestWpm;
     if(highestWpm < this.wordsPerMin) {
       this.userStatsRepo.updateHighestWpm(
-        stats.id,
+        stats.user.id,
         this.wordsPerMin,
       );
     }
@@ -66,7 +66,7 @@ export class TypingStatsService {
     const fastestTime = stats.fastestTime;
     if(fastestTime == -1 || this.currentUserStats.fastestTime > this.timeInDs) {
       this.userStatsRepo.updateFastestTime(
-        stats.id,
+        stats.user.id,
         this.timeInDs,
       );
     }

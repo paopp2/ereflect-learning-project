@@ -1,6 +1,7 @@
+import { User } from "./user.model";
 
 export interface UserStats {
-    id: string;
     highestWpm: number;
     fastestTime: number;
+    user: User;
 }

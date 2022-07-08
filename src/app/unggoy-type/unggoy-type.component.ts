@@ -26,12 +26,11 @@ export class UnggoyTypeComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const currentUser = this.authService.currentUser;
     if (currentUser) {
-      const uid = currentUser.uid;
-      this.userStatsSubscription = this.userStatsRepo.getUserStats(uid)
+      this.userStatsSubscription = this.userStatsRepo.getUserStats(currentUser.id)
         .subscribe((userStats) => {
           if (!userStats) {
             // Initialize if user has no stats data yet
-            this.userStatsRepo.initUserStats(uid)
+            this.userStatsRepo.initUserStats(currentUser)
             return;
           };
           
