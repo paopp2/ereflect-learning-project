@@ -10,8 +10,4 @@ export class TypingStatsComponent implements OnInit {
   constructor(public statsService: TypingStatsService) { }
 
   ngOnInit(): void { }
-  
-  onReset() {
-    this.statsService.reset();
-  }
 }
