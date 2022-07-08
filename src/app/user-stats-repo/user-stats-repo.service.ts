@@ -14,6 +14,7 @@ export class UserStatsRepoService {
     await this.pushUserStats(
       userId,
       <UserStats>{
+        id: userId,
         highestWpm: -1,
         fastestTime: -1,
       },
