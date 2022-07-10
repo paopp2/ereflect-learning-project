@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { orderBy, where } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { FirestoreHelper } from '../firestore/firestore-helper.service';
 import { UserStats } from '../models/user-stats.model';
@@ -49,6 +50,17 @@ export class UserStatsRepoService {
     return this.dbHelper.getDocObservable({
       path: `user_stats/${userId}`,
       builder: (data, _) => (data) ? data as UserStats : null,
+    });
+  }
+  
+  getTopUserStats(): Observable<UserStats[]> {
+    return this.dbHelper.getCollectionObservable<UserStats>({
+      path: 'user_stats',
+      builder: (data, _) => data as UserStats,
+      queryConstraints: [
+        where('highestWpm', '!=', -1),
+        orderBy('highestWpm', 'desc'),
+      ],
     });
   }
 }

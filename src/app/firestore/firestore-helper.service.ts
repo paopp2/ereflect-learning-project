@@ -50,8 +50,9 @@ export class FirestoreHelper {
     QueryConstraint
     const _query = query(collection(this.db, params.path), ...(params.queryConstraints ?? []));
     return collectionSnapshots(_query).pipe(
-      map((snapArray, _) => snapArray
-        .map(snap => params.builder(snap.data(), snap.id)),
+      map((snapArray, _) => (snapArray) 
+        ? snapArray.map(snap => params.builder(snap.data(), snap.id)) 
+        : [],
       )
     );
   }
