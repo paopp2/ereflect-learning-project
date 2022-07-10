@@ -1,6 +1,8 @@
-<div *ngFor="let stats of userStats; trackBy:userStatsById">
-    <img [src]="stats.user.photoUrl" alt="Maltese image">
-    <p>{{stats.highestWpm}}</p>
-    <p>{{stats.fastestTime}}</p>
-    <p>{{stats.user.displayName}}</p>
+<div *ngFor="let stats of topUserStats; let i=index; trackBy:userStatsById">
+    <h1>Top {{i+1}}</h1>
+    <img [src]="stats.user.photoUrl" alt="User image">
+    <p>Name: {{stats.user.displayName}}</p>
+    <p>WPM: {{stats.highestWpm}}</p>
+    <p>Fastest time: {{stats.fastestTime}}</p>
+    <hr>
 </div>
