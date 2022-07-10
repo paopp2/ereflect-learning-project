@@ -26,6 +26,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SwitchOptionsComponent } from './unggoy-type/switch-options/switch-options.component';
 import { MatSelectModule } from '@angular/material/select';
 import { GravatarModule } from 'ngx-gravatar';
+import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { GravatarModule } from 'ngx-gravatar';
     AboutComponent,
     AuthComponent,
     FooterComponent,
-    SwitchOptionsComponent
+    SwitchOptionsComponent,
+    LeaderboardsComponent
   ],
   imports: [
     BrowserModule,
