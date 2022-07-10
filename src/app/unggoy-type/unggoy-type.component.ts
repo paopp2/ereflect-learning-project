@@ -15,8 +15,7 @@ export class UnggoyTypeComponent implements OnInit {
 
   constructor(
     public statsService: TypingStatsService,
-    public authService: AuthService,
-    private router: Router,
+    public authService: AuthService
   ) { }
 
   ngOnInit() { }
