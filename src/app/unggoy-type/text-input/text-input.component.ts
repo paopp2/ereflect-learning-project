@@ -62,6 +62,16 @@ export class TextInputComponent implements OnDestroy {
       event.preventDefault();
       return;
     }
+    
+    // Prevent user from deleting input that is already correct
+    if(event.key === "Backspace") {
+      const inputText = this.statsService.inputText;
+      const displayText = this.statsService.displayText;
+      const inputLength = inputText.length;
+      const inputAlreadyCorrect = inputText === displayText.slice(0, inputLength);
+      
+      if(inputAlreadyCorrect) event.preventDefault();
+    }
 
     // Play keyboard sound depending on selected switch type
     let audio = new Audio(`../../../assets/audio/${this.switchType}.mp3`);
