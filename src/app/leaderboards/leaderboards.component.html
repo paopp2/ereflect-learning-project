@@ -5,16 +5,12 @@
       aria-label="Font Style"
       class="buttonGroup"
     >
-      <mat-button-toggle value="hwpm"
-        ><a routerLink="/leaderboards" [queryParams]="{ stats: 'wpm' }"
-          >Highest WPM</a
-        ></mat-button-toggle
-      >
-      <mat-button-toggle value="htime"
-        ><a routerLink="/leaderboards" [queryParams]="{ stats: 'time' }"
-          >Fastest Time</a
-        ></mat-button-toggle
-      >
+      <mat-button-toggle value="hwpm" [routerLink]="'/leaderboards'" [queryParams]="{ stats: 'wpm' }">
+        Highest WPM
+      </mat-button-toggle>
+      <mat-button-toggle value="htime" [routerLink]="'/leaderboards'" [queryParams]="{ stats: 'time' }">
+        Fastest Time
+      </mat-button-toggle>
     </mat-button-toggle-group>
   </div>
 
