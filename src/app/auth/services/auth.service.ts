@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { 
   Auth, 
   AuthProvider, 
@@ -13,12 +13,11 @@ import { User } from 'src/app/models/user.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService implements OnDestroy {
-  private authStateSubscription: Subscription;
+export class AuthService {
   currentUser: User | null = null;
 
   constructor(public fireAuth: Auth) { 
-    this.authStateSubscription = authState(fireAuth).subscribe(
+    authState(fireAuth).subscribe(
       (user) => {
         if(!user) {
           this.currentUser = null;
@@ -34,10 +33,6 @@ export class AuthService implements OnDestroy {
         };
       },
     );
-  }
-
-  ngOnDestroy(): void {
-    this.authStateSubscription.unsubscribe();
   }
 
   // Sign in with Google
