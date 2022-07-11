@@ -1,6 +1,6 @@
 <div><a routerLink="/leaderboards" [queryParams]="{stats: 'wpm'}">Highest WPM</a></div>
 <div><a routerLink="/leaderboards" [queryParams]="{stats: 'time'}">Fastest Time</a></div>
-<div *ngFor="let stats of topUserStats; let i=index; trackBy:userStatsById">
+<div *ngFor="let stats of topUserStats$ | async; let i=index; trackBy:userStatsById">
     <h1>Top {{i+1}}</h1>
     <img [src]="stats.user.photoUrl" alt="User image">
     <p>Name: {{stats.user.displayName}}</p>
