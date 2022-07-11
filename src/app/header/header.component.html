@@ -41,6 +41,7 @@
       class="example-icon favorite-icon leaderboards"
       aria-label="About Icon"
       [routerLink]="'/leaderboards'"
+      *ngIf="authService.currentUser"
     >
       Leaderboard
     </button>
