@@ -57,6 +57,10 @@ export class TextInputComponent implements OnDestroy {
   }
   
   onKeydown(event: any) {
+    // Play keyboard sound depending on selected switch type
+    let audio = new Audio(`../../../assets/audio/${this.switchType}.mp3`);
+    audio.play();
+
     // Disable lateral cursor movement using arrow keys  
     if(event.key === "ArrowRight" || event.key === "ArrowLeft") {
       event.preventDefault();
@@ -72,10 +76,6 @@ export class TextInputComponent implements OnDestroy {
       
       if(inputAlreadyCorrect) event.preventDefault();
     }
-
-    // Play keyboard sound depending on selected switch type
-    let audio = new Audio(`../../../assets/audio/${this.switchType}.mp3`);
-    audio.play();
   }
 
   handlePaste(){
