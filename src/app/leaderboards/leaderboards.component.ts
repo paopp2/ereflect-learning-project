@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserStats } from '../models/user-stats.model';
 import { UserStatsRepoService } from '../user-stats-repo/user-stats-repo.service';
 
@@ -8,13 +9,23 @@ import { UserStatsRepoService } from '../user-stats-repo/user-stats-repo.service
   styleUrls: ['./leaderboards.component.css']
 })
 export class LeaderboardsComponent implements OnInit {
+  statsType: string = 'wpm';
   topUserStats: UserStats[]  = [];
 
-  constructor(private userStatsRepo: UserStatsRepoService) { 
-  }
+  constructor(
+    private userStatsRepo: UserStatsRepoService,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
-    this.userStatsRepo.getTopUserStats().subscribe({
+    this.route.queryParams.subscribe({
+      next: (params) => {
+        console.log(params);
+        this.statsType = params['stats'] ?? 'wpm';
+      },
+    });
+
+    this.userStatsRepo.getTopUserStats(this.statsType).subscribe({
       next: (userStats) => this.topUserStats = userStats,
     });
   }

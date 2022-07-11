@@ -53,13 +53,17 @@ export class UserStatsRepoService {
     });
   }
   
-  getTopUserStats(): Observable<UserStats[]> {
+  getTopUserStats(statsType: string): Observable<UserStats[]> {
+    const isWpm = statsType === 'wpm';
+    const stats = isWpm ? 'highestWpm' : 'fastestTime';
+    const orderDirection = isWpm ? 'desc' : 'asc';
+    
     return this.dbHelper.getCollectionObservable<UserStats>({
       path: 'user_stats',
       builder: (data, _) => data as UserStats,
       queryConstraints: [
-        where('highestWpm', '!=', -1),
-        orderBy('highestWpm', 'desc'),
+        where(stats, '!=', -1),
+        orderBy(stats, orderDirection),
       ],
     });
   }
