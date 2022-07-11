@@ -32,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
