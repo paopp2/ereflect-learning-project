@@ -14,7 +14,7 @@ import { Switch } from 'src/app/models/switch-type.model';
   styleUrls: ['./switch-options.component.css']
 })
 export class SwitchOptionsComponent implements OnInit {
-  @Input() switchType: string = 'mxblack';
+  @Input() switchType!: string;
   @Output() switchTypeChange = new EventEmitter<string>();
 
   switches: Switch[] = [
