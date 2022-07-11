@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription, take } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/services/auth.service';
 import { InputData } from '../models/input-data.model';
 import { UserStats } from '../models/user-stats.model';
@@ -10,12 +9,11 @@ import { TypingStatsService } from './services/typing-stats.service';
   selector: 'app-unggoy-type',
   templateUrl: './unggoy-type.component.html',
   styleUrls: ['./unggoy-type.component.css'],
-  providers: []
+  providers: [TypingStatsService]
 })
-export class UnggoyTypeComponent implements OnInit, OnDestroy {
+export class UnggoyTypeComponent implements OnInit {
   currentUserStats!: UserStats;
   switchType = 'mxblack';
-  private userStatsSubscription?: Subscription;
 
   constructor(
     public statsService: TypingStatsService,
@@ -26,7 +24,7 @@ export class UnggoyTypeComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const currentUser = this.authService.currentUser;
     if (currentUser) {
-      this.userStatsSubscription = this.userStatsRepo.getUserStats(currentUser.id)
+      this.userStatsRepo.getUserStats(currentUser.id)
         .subscribe((userStats) => {
           if (!userStats) {
             // Initialize if user has no stats data yet
@@ -39,11 +37,6 @@ export class UnggoyTypeComponent implements OnInit, OnDestroy {
     }
   }
   
-  ngOnDestroy(): void {
-    this.statsService.reset();
-    this.userStatsSubscription?.unsubscribe();
-  }
-
   onDisplayTextChange(text: string) {
     this.statsService.displayText = text;
   }
