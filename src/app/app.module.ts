@@ -27,6 +27,10 @@ import { SwitchOptionsComponent } from './unggoy-type/switch-options/switch-opti
 import { MatSelectModule } from '@angular/material/select';
 import { GravatarModule } from 'ngx-gravatar';
 import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
+import { ContactUsComponent } from './contact-us/contact-us/contact-us.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +44,8 @@ import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
     AuthComponent,
     FooterComponent,
     SwitchOptionsComponent,
-    LeaderboardsComponent
+    LeaderboardsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,10 @@ import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     MatSelectModule,
-    GravatarModule
+    GravatarModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

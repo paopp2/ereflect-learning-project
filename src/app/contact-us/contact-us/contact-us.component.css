@@ -1,0 +1,29 @@
+.example-card{
+    display:inline-block;
+}
+
+.main-div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+mat-card {
+    margin-bottom: 20px;
+}
+
+.mainForm {
+    margin: 20px;
+}
+
+.title_center {
+    display: flex !important;
+    justify-content: center !important; 
+    align-items: center !important; 
+}
+
+.contactcard {
+    margin: 10px;
+}
