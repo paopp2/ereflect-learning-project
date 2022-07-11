@@ -3,6 +3,7 @@ import {
   ElementRef, 
   EventEmitter,
   Input, 
+  AfterViewInit,
   OnDestroy, 
   Output, 
   ViewChild
@@ -17,7 +18,7 @@ import { TypingStatsService } from '../services/typing-stats.service';
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.css']
 })
-export class TextInputComponent implements OnDestroy {
+export class TextInputComponent implements AfterViewInit, OnDestroy {
   @ViewChild('textField') textField!: ElementRef;
   @Input() switchType = 'mxblack';
   @Output() inputChange = new EventEmitter<InputData>();
@@ -44,6 +45,10 @@ export class TextInputComponent implements OnDestroy {
     this.stopSubscription = statsService.stop$.subscribe(() => this.isTypeFinished = true);
   }
   
+  ngAfterViewInit(): void {
+    this.textField.nativeElement.focus();
+  }
+
   ngOnDestroy(): void {
     this.resetSubscription.unsubscribe();
     this.stopSubscription.unsubscribe();
