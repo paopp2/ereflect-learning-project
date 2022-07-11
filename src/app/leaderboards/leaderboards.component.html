@@ -1,10 +1,72 @@
-<div><a routerLink="/leaderboards" [queryParams]="{stats: 'wpm'}">Highest WPM</a></div>
-<div><a routerLink="/leaderboards" [queryParams]="{stats: 'time'}">Fastest Time</a></div>
-<div *ngFor="let stats of topUserStats$ | async; let i=index; trackBy:userStatsById">
-    <h1>Top {{i+1}}</h1>
-    <img [src]="stats.user.photoUrl" alt="User image">
-    <p>Name: {{stats.user.displayName}}</p>
-    <p>WPM: {{stats.highestWpm | number: "1.0-0"}}</p>
-    <p>Fastest time: {{stats.fastestTime | timeDisplay}}</p>
-    <hr>
+<div>
+  <a routerLink="/leaderboards" [queryParams]="{ stats: 'wpm' }">Highest WPM</a>
+</div>
+<div>
+  <a routerLink="/leaderboards" [queryParams]="{ stats: 'time' }"
+    >Fastest Time</a
+  >
+</div>
+<!-- <div
+  *ngFor="
+    let stats of topUserStats$ | async;
+    let i = index;
+    trackBy: userStatsById
+  "
+>
+  <div *ngIf="i < 3">
+  <h1>Top {{ i + 1 }}</h1>
+  <img [src]="stats.user.photoUrl" alt="User image" />
+  <p>Name: {{ stats.user.displayName }}</p>
+  <p>WPM: {{ stats.highestWpm | number: "1.0-0" }}</p>
+  <p>Fastest time: {{ stats.fastestTime | timeDisplay }}</p>
+  <hr />
+  </div>
+</div> -->
+
+<!-- <div
+  style="display: flex"
+  *ngFor="
+    let stats of topUserStats$ | async;
+    let i = index;
+    trackBy: userStatsById
+  "
+>
+  <mat-card style="flex: 1 1 auto">
+    <img mat-card-sm-image [src]="stats.user.photoUrl" alt="User image" />
+    <mat-card-header>
+      <mat-card-title>{{ stats.user.displayName }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content
+      >{{ stats.highestWpm | number: "1.0-0" }} ||
+      {{ stats.fastestTime | timeDisplay }}</mat-card-content
+    >
+  </mat-card>
+</div> -->
+<div class="container">
+  <mat-grid-list cols="3">
+    <mat-grid-tile
+      *ngFor="
+        let stats of topUserStats$ | async;
+        let i = index;
+        trackBy: userStatsById
+      "
+    >
+      <mat-card>
+        <img
+          mat-card-sm-image
+          [src]="stats.user.photoUrl"
+          alt="User image"
+          class="userImg"
+        />
+        <mat-card-header>
+          <mat-card-title>{{ stats.user.displayName }}</mat-card-title>
+          <mat-card-subtitle>Rank {{ i + 1 }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="cardContent"
+          >{{ stats.highestWpm | number: "1.0-0" }} ||
+          {{ stats.fastestTime | timeDisplay }}</mat-card-content
+        >
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
