@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { mergeMap, Observable } from 'rxjs';
-import { UserStats } from '../core/models';
-import { UserStatsRepoService } from '../core/services';
+import { UserStats } from '../../core/models';
+import { UserStatsRepoService } from '../../core/services';
 
 @Component({
   selector: 'app-leaderboards',

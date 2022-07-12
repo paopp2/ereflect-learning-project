@@ -24,6 +24,7 @@ import * as fromComponents from './components';
     RouterModule,
     GravatarModule,
     MatButtonModule,
+   
   ],
   exports: [
     ...fromPipes.pipes,
@@ -31,6 +32,7 @@ import * as fromComponents from './components';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+
   ],
 })
 export class SharedModule { }

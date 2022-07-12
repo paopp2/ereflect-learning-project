@@ -4,7 +4,7 @@ import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 import { AboutComponent } from './features/about/about.component';
 import { AuthComponent } from './features/auth/auth.component';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
-import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
+import { LeaderboardsComponent } from './features/leaderboards/leaderboards.component';
 import {
   canActivate,
   redirectLoggedInTo,
