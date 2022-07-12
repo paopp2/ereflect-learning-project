@@ -1,0 +1,31 @@
+.userImg {
+    margin: auto;
+    display: block;
+}
+
+.cardContent {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.cardHeader {
+    margin-top: 10px;
+}
+
+.stats {
+    font-weight: bold !important;
+}
+
+.buttonGroup {
+    margin-top: 20px;
+    margin-left: 230px;
+}
+
+.top {
+    font-size: 20px;
+}
+
+mat-card{
+    width: 80%;
+}
+

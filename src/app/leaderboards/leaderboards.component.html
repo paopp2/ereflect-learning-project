@@ -1,10 +1,45 @@
-<div><a routerLink="/leaderboards" [queryParams]="{stats: 'wpm'}">Highest WPM</a></div>
-<div><a routerLink="/leaderboards" [queryParams]="{stats: 'time'}">Fastest Time</a></div>
-<div *ngFor="let stats of topUserStats$ | async; let i=index; trackBy:userStatsById">
-    <h1>Top {{i+1}}</h1>
-    <img [src]="stats.user.photoUrl" alt="User image">
-    <p>Name: {{stats.user.displayName}}</p>
-    <p>WPM: {{stats.highestWpm | number: "1.0-0"}}</p>
-    <p>Fastest time: {{stats.fastestTime | timeDisplay}}</p>
-    <hr>
+<div class="container">
+  <div class="buttonGroup">
+    <mat-button-toggle-group
+      name="fontStyle"
+      aria-label="Font Style"
+      class="buttonGroup"
+      value="hwpm"
+    >
+      <mat-button-toggle value="hwpm" [routerLink]="'/leaderboards'" [queryParams]="{ stats: 'wpm' }">
+        Highest WPM
+      </mat-button-toggle>
+      <mat-button-toggle value="htime" [routerLink]="'/leaderboards'" [queryParams]="{ stats: 'time' }">
+        Fastest Time
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <mat-grid-list cols="3">
+    <mat-grid-tile
+      *ngFor="
+        let stats of topUserStats$ | async;
+        let i = index;
+        trackBy: userStatsById
+      "
+    >
+      <mat-card class="individualCard">
+        <img
+          mat-card-sm-image
+          [src]="stats.user.photoUrl"
+          alt="User image"
+          class="userImg"
+        />
+
+        <mat-card-content class="cardContent">
+          <h3>{{ stats.user.displayName }}</h3>
+          <h5 [ngClass]="i < 3 ? 'top' : 'bottom'">Rank {{ i + 1 }}</h5>
+          <h5 class="stats">WPM: {{ stats.highestWpm | number: "1.0-0" }}</h5>
+          <h5 class="stats">
+            Fastest Time: {{ stats.fastestTime | timeDisplay }}
+          </h5>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
