@@ -30,6 +30,7 @@ import * as fromComponents from './components';
     ...fromComponents.components,
     MatCardModule,
     MatInputModule,
+    MatButtonModule,
   ],
 })
 export class SharedModule { }
