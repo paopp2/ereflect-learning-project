@@ -8,6 +8,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import * as fromPipes from './pipes';
 import * as fromComponents from './components';
@@ -24,6 +27,9 @@ import * as fromComponents from './components';
     RouterModule,
     GravatarModule,
     MatButtonModule,
+    MatGridListModule,
+    MatButtonToggleModule,
+    MatProgressSpinnerModule
    
   ],
   exports: [
@@ -32,6 +38,9 @@ import * as fromComponents from './components';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatGridListModule,
+    MatButtonToggleModule,
+    MatProgressSpinnerModule
 
   ],
 })
