@@ -6,24 +6,7 @@ Unggoy Type is a simple typing test that allows its users to type a given paragr
 
 1. Run `npm install` to install the necessary dependencies.
 2. Set up `environment.prod.ts` and `environment.ts` with the following variables and your values:
-   in `environment.prod.ts`
-
-```
-export const environment = {
-  firebase: {
-    projectId: ,
-    appId: ,
-    storageBucket: ,
-    apiKey: ,
-    authDomain: ,
-    messagingSenderId: ,
-  },
-  formspreeApi: ,
-    production: true
-};
-```
-
-in `environment.ts`
+   in `environment.prod.ts` and `environment.ts`
 
 ```
 export const environment = {
