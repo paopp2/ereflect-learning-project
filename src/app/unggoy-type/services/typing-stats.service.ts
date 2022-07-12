@@ -6,7 +6,7 @@ import { UserStatsRepoService } from 'src/app/user-stats-repo/user-stats-repo.se
 
 @Injectable()
 export class TypingStatsService implements OnDestroy {
-  currentUserStats!: UserStats;
+  currentUserStats?: UserStats;
   isRunning: boolean = false;
   inputText: string = '';
   displayText: string = '';
@@ -59,7 +59,7 @@ export class TypingStatsService implements OnDestroy {
   }
 
   stop() { 
-    const stats = this.currentUserStats;
+    const stats = this.currentUserStats!;
     const highestWpm = stats.highestWpm;
     if(highestWpm < this.wordsPerMin) {
       this.userStatsRepo.updateHighestWpm(
@@ -69,7 +69,7 @@ export class TypingStatsService implements OnDestroy {
     }
 
     const fastestTime = stats.fastestTime;
-    if(fastestTime == -1 || this.currentUserStats.fastestTime > this.timeInDs) {
+    if(fastestTime == -1 || stats.fastestTime > this.timeInDs) {
       this.userStatsRepo.updateFastestTime(
         stats.user.id,
         this.timeInDs,

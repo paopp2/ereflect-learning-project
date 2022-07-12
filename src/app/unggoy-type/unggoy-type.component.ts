@@ -12,7 +12,7 @@ import { TypingStatsService } from './services/typing-stats.service';
   providers: [TypingStatsService]
 })
 export class UnggoyTypeComponent implements OnInit {
-  currentUserStats!: UserStats;
+  currentUserStats?: UserStats;
   switchType = 'mxblack';
 
   constructor(

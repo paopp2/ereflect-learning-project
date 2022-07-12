@@ -1,4 +1,4 @@
-<div class="container ownStats">
+<div class="container ownStats" *ngIf="statsService.currentUserStats">
   <div class="floating">
     <h2>Your best WPM:</h2>
     <h3>{{ statsService.currentUserStats.highestWpm | number: "1.0-0" }}</h3>
