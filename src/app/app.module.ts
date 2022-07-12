@@ -35,6 +35,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { UserBestStatsComponent } from './unggoy-type/user-best-stats/user-best-stats.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FooterComponent,
     SwitchOptionsComponent,
     LeaderboardsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    UserBestStatsComponent
   ],
   imports: [
     BrowserModule,

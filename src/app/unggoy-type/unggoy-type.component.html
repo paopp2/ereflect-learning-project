@@ -1,6 +1,5 @@
-<p>Best WPM: {{statsService.currentUserStats.highestWpm | number: "1.0-0"}}</p>
-<p>Best Time: {{statsService.currentUserStats.fastestTime | timeDisplay}}</p>
 <div class="container" (keydown)="resetOnTab($event)">
+  <app-user-best-stats></app-user-best-stats>
   <app-typing-stats></app-typing-stats>
 
   <app-switch-options [(switchType)]="switchType"></app-switch-options>

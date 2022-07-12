@@ -1,0 +1,13 @@
+.ownStats {
+    margin-top: 50px;
+    border:1px solid rgb(190, 190, 190);
+    border-radius: 5px;
+
+    width: 50%;
+}
+
+.floating {
+    float: right;
+    width: 50%;
+    text-align: center;
+}

@@ -1,0 +1,20 @@
+<!-- <div class="container ownStats">
+  <h2>Your stats:</h2>
+  <h3>
+    Best WPM:
+    {{ statsService.currentUserStats.highestWpm | number: "1.0-0" }}
+  </h3>
+  <h3>
+    Best Time: {{ statsService.currentUserStats.fastestTime | timeDisplay }}
+  </h3>
+</div> -->
+<div class="container ownStats">
+  <div class="floating">
+    <h2>Your best WPM:</h2>
+    <h3>{{ statsService.currentUserStats.highestWpm | number: "1.0-0" }}</h3>
+  </div>
+  <div class="floating">
+    <h2>Your best time:</h2>
+    <h3>{{ statsService.currentUserStats.fastestTime | timeDisplay }}</h3>
+  </div>
+</div>
