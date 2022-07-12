@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { TextSourceComponent } from './unggoy-type/text-source/text-source.component';
 import { TextInputComponent } from './unggoy-type/text-input/text-input.component';
@@ -12,7 +11,6 @@ import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 import { TypingStatsComponent } from './unggoy-type/typing-stats/typing-stats.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthComponent } from './auth/auth/auth.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -29,6 +27,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { ContactUsModule } from './features/contact-us/contact-us.module';
 import { AboutModule } from './features/about/about.module';
+import { AuthModule } from './features/auth/auth.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +35,6 @@ import { AboutModule } from './features/about/about.module';
     TextSourceComponent,
     TextInputComponent,
     TypingStatsComponent,
-    AuthComponent,
     SwitchOptionsComponent,
     LeaderboardsComponent,
     UserBestStatsComponent
@@ -47,7 +45,6 @@ import { AboutModule } from './features/about/about.module';
     NoopAnimationsModule,
     MatButtonModule,
     MatInputModule,
-    MatCardModule,
     MatSnackBarModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -62,6 +59,7 @@ import { AboutModule } from './features/about/about.module';
     CoreModule,
     AboutModule,
     ContactUsModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

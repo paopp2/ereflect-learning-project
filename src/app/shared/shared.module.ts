@@ -28,9 +28,9 @@ import * as fromComponents from './components';
   exports: [
     ...fromPipes.pipes,
     ...fromComponents.components,
-    MatCardModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
   ],
 })
 export class SharedModule { }
