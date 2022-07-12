@@ -19,7 +19,11 @@ const routes: Routes = [
   { path: 'login', component: AuthComponent, ...canActivate(redirectAuthorizedToHome) },
   { path: 'leaderboards', component: LeaderboardsComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'contact-us', component: ContactUsComponent },
-  { path: '', component: UnggoyTypeComponent, ...canActivate(redirectUnauthorizedToLogin) },
+  { 
+    path: '', 
+    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
+    ...canActivate(redirectUnauthorizedToLogin), 
+  },
   { path: '**', redirectTo: '' },
 ];
 

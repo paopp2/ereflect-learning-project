@@ -5,7 +5,6 @@ import { ContactUsModule } from './features/contact-us/contact-us.module';
 import { AboutModule } from './features/about/about.module';
 import { AuthModule } from './features/auth/auth.module';
 import { LeaderboardsModule } from './features/leaderboards/leaderboards.module';
-import { HomeModule } from './features/home/home.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -14,7 +13,6 @@ import { HomeModule } from './features/home/home.module';
     ContactUsModule,
     AuthModule,
     LeaderboardsModule,
-    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
