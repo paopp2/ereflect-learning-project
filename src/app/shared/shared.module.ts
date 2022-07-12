@@ -3,18 +3,16 @@ import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-
-import * as fromComponents from './components';
-import { TimeDisplayPipe } from './pipes/time-display.pipe';
-import { FooterComponent, HeaderComponent } from './components';
 import { GravatarModule } from 'ngx-gravatar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
 
+import * as fromPipes from './pipes';
+import * as fromComponents from './components';
 @NgModule({
   declarations: [
-    TimeDisplayPipe,
-    HeaderComponent,
-    FooterComponent,
+    ...fromPipes.pipes,
+    ...fromComponents.components,
   ],
   imports: [
     CommonModule,
@@ -23,11 +21,11 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatIconModule,
     RouterModule,
     GravatarModule,
+    MatButtonModule,
   ],
   exports: [
-    TimeDisplayPipe,
-    HeaderComponent,
-    FooterComponent,
+    ...fromPipes.pipes,
+    ...fromComponents.components,
   ],
 })
 export class SharedModule { }
