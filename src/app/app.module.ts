@@ -60,8 +60,8 @@ import { AboutModule } from './features/about/about.module';
     MatProgressSpinnerModule,
     SharedModule,
     CoreModule,
-    ContactUsModule,
     AboutModule,
+    ContactUsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

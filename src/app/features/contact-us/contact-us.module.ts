@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
-    ContactUsComponent
+    ContactUsComponent,
   ],
   imports: [
     CommonModule,
@@ -17,5 +17,8 @@ import { MatInputModule } from '@angular/material/input';
     SharedModule,
     MatFormFieldModule,
   ],
+  exports: [
+    ContactUsComponent,
+  ]
 })
 export class ContactUsModule { }
