@@ -6,17 +6,25 @@
       class="buttonGroup"
       value="hwpm"
     >
-      <mat-button-toggle value="hwpm" [routerLink]="'/leaderboards'" [queryParams]="{ stats: 'wpm' }">
+      <mat-button-toggle
+        value="hwpm"
+        [routerLink]="'/leaderboards'"
+        [queryParams]="{ stats: 'wpm' }"
+      >
         Highest WPM
       </mat-button-toggle>
-      <mat-button-toggle value="htime" [routerLink]="'/leaderboards'" [queryParams]="{ stats: 'time' }">
+      <mat-button-toggle
+        value="htime"
+        [routerLink]="'/leaderboards'"
+        [queryParams]="{ stats: 'time' }"
+      >
         Fastest Time
       </mat-button-toggle>
     </mat-button-toggle-group>
   </div>
 
   <mat-grid-list cols="3">
-    <div *ngIf="(topUserStats$ | async) as topUserStats; else loading">
+    <div *ngIf="topUserStats$ | async as topUserStats; else loading">
       <mat-grid-tile
         *ngFor="
           let stats of topUserStats;
@@ -44,7 +52,9 @@
       </mat-grid-tile>
     </div>
     <ng-template #loading>
-      <p>Loading</p>
+      <div class="spinner-wrapper">
+        <mat-spinner [diameter]="30"></mat-spinner>
+      </div>
     </ng-template>
   </mat-grid-list>
 </div>

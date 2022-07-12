@@ -34,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     HttpClientModule,
     MatGridListModule,
     MatButtonToggleModule,
-    MatTabsModule
+    MatTabsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
