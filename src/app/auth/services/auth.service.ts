@@ -19,18 +19,14 @@ export class AuthService {
   constructor(public fireAuth: Auth) { 
     authState(fireAuth).subscribe(
       (user) => {
-        if(!user) {
-          this.currentUser = null;
-          return;
-        }
-        
-        this.currentUser = <User>{
-          id: user.uid,
-          displayName: user.displayName,
-          email: user.email,
-          phoneNumber: user.phoneNumber,
-          photoUrl: user.photoURL,
-        };
+        this.currentUser = (user) 
+          ? <User>{
+            id: user.uid,
+            displayName: user.displayName,
+            email: user.email,
+            phoneNumber: user.phoneNumber,
+            photoUrl: user.photoURL,
+          } : null;
       },
     );
   }
