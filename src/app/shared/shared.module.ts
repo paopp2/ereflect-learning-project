@@ -13,7 +13,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import * as fromPipes from './pipes';
 import * as fromComponents from './components';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     ...fromPipes.pipes,
@@ -29,7 +29,6 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatButtonToggleModule,
     MatProgressSpinnerModule
-   
   ],
   exports: [
     ...fromPipes.pipes,
