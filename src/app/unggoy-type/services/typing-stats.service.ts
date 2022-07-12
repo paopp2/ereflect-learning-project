@@ -69,7 +69,7 @@ export class TypingStatsService implements OnDestroy {
     }
 
     const fastestTime = stats.fastestTime;
-    if(fastestTime == -1 || stats.fastestTime > this.timeInDs) {
+    if(fastestTime == 0 || stats.fastestTime > this.timeInDs) {
       this.userStatsRepo.updateFastestTime(
         stats.user.id,
         this.timeInDs,
