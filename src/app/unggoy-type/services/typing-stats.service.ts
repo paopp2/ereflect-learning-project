@@ -1,7 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
-import { InputData } from 'src/app/core/models/input-data.model';
-import { UserStats } from 'src/app/core/models/user-stats.model';
+import { InputData, UserStats } from 'src/app/core/models';
 import { UserStatsRepoService } from 'src/app/core/services/user-stats-repo.service';
 
 @Injectable()

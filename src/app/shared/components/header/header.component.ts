@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
-import { Tabs } from '../../../core/models/tabs.model';
+import { Tabs } from '../../../core/models';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

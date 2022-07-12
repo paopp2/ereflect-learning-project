@@ -6,7 +6,7 @@ import {
   EventEmitter
 } from '@angular/core';
 import { TypingStatsService } from '../services/typing-stats.service';
-import { Switch } from 'src/app/core/models/switch-type.model';
+import { Switch } from 'src/app/core/models';
 
 @Component({
   selector: 'app-switch-options',
