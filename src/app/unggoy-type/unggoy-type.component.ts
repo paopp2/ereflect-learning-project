@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../core/services/auth.service';
+import { AuthService, UserStatsRepoService } from '../core/services';
 import { InputData, UserStats } from '../core/models';
-import { UserStatsRepoService } from '../core/services/user-stats-repo.service';
 import { TypingStatsService } from './services/typing-stats.service';
 
 @Component({
