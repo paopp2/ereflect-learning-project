@@ -9,7 +9,7 @@ import {
   redirectUnauthorizedTo
 } from '@angular/fire/auth-guard';
 import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
-import { ContactUsComponent } from './contact-us/contact-us/contact-us.component';
+import { ContactUsComponent } from './features/contact-us/contact-us.component';
 
 const redirectAuthorizedToHome = () => redirectLoggedInTo(['']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);

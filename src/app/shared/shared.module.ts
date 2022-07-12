@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { GravatarModule } from 'ngx-gravatar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 
 import * as fromPipes from './pipes';
 import * as fromComponents from './components';
@@ -26,6 +28,8 @@ import * as fromComponents from './components';
   exports: [
     ...fromPipes.pipes,
     ...fromComponents.components,
+    MatCardModule,
+    MatInputModule,
   ],
 })
 export class SharedModule { }

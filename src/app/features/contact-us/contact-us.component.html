@@ -11,6 +11,7 @@
       height="190"
       width="350"
       class="contactcard"
+      alt="Contact Card"
     />
     <mat-card-content>
       <form
@@ -22,7 +23,7 @@
         <div>
           <mat-form-field appearance="standard" [style.width.%]="100">
             <mat-label>Name</mat-label>
-            <input matInput formControlName="name" />
+            <input matInput formControlName="name" title="Name"/>
             <mat-error
               *ngIf="!myForm.get('name')?.valid && myForm.get('name')?.touched"
               >{{ requiredMessage }}</mat-error
@@ -32,7 +33,7 @@
         <div>
           <mat-form-field appearance="standard" [style.width.%]="100">
             <mat-label>Email</mat-label>
-            <input matInput formControlName="email" />
+            <input matInput formControlName="email" title="Email"/>
             <mat-error
               *ngIf="
                 !myForm.get('email')?.valid && myForm.get('email')?.touched
