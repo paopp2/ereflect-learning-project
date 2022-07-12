@@ -14,6 +14,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import * as fromPipes from './pipes';
 import * as fromComponents from './components';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     ...fromPipes.pipes,
@@ -40,8 +41,8 @@ import * as fromComponents from './components';
     MatCardModule,
     MatGridListModule,
     MatButtonToggleModule,
-    MatProgressSpinnerModule
-
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
   ],
 })
 export class SharedModule { }
