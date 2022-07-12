@@ -4,10 +4,7 @@ import { FormGroup } from "@angular/forms";
 import { environment } from "src/environments/environment";
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
-@Injectable({
-    providedIn: 'root'
-})
-
+@Injectable()
 export class EmailService {
 
     private configSuccess: MatSnackBarConfig = {

@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactUsComponent } from './contact-us.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { EmailService } from './services/email.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
   ],
   exports: [
     ContactUsComponent,
-  ]
+  ],
+  providers: [EmailService],
 })
 export class ContactUsModule { }
