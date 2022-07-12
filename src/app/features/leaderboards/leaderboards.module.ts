@@ -3,19 +3,16 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LeaderboardsComponent } from './leaderboards.component';
 import { RouterModule } from '@angular/router';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
-  declarations: [
-    LeaderboardsComponent,
-  ],
+  declarations: [LeaderboardsComponent],
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    MatGridListModule,
   ],
-  exports: [
-    LeaderboardsComponent,
-  ],
+  exports: [LeaderboardsComponent],
 })
 export class LeaderboardsModule { }
