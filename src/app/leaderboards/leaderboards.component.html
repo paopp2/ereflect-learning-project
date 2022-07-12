@@ -16,30 +16,35 @@
   </div>
 
   <mat-grid-list cols="3">
-    <mat-grid-tile
-      *ngFor="
-        let stats of topUserStats$ | async;
-        let i = index;
-        trackBy: userStatsById
-      "
-    >
-      <mat-card class="individualCard">
-        <img
-          mat-card-sm-image
-          [src]="stats.user.photoUrl"
-          alt="User image"
-          class="userImg"
-        />
+    <div *ngIf="(topUserStats$ | async) as topUserStats; else loading">
+      <mat-grid-tile
+        *ngFor="
+          let stats of topUserStats;
+          let i = index;
+          trackBy: userStatsById
+        "
+      >
+        <mat-card class="individualCard">
+          <img
+            mat-card-sm-image
+            [src]="stats.user.photoUrl"
+            alt="User image"
+            class="userImg"
+          />
 
-        <mat-card-content class="cardContent">
-          <h3>{{ stats.user.displayName }}</h3>
-          <h5 [ngClass]="i < 3 ? 'top' : 'bottom'">Rank {{ i + 1 }}</h5>
-          <h5 class="stats">WPM: {{ stats.highestWpm | number: "1.0-0" }}</h5>
-          <h5 class="stats">
-            Fastest Time: {{ stats.fastestTime | timeDisplay }}
-          </h5>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
+          <mat-card-content class="cardContent">
+            <h3>{{ stats.user.displayName }}</h3>
+            <h5 [ngClass]="i < 3 ? 'top' : 'bottom'">Rank {{ i + 1 }}</h5>
+            <h5 class="stats">WPM: {{ stats.highestWpm | number: "1.0-0" }}</h5>
+            <h5 class="stats">
+              Fastest Time: {{ stats.fastestTime | timeDisplay }}
+            </h5>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </div>
+    <ng-template #loading>
+      <p>Loading</p>
+    </ng-template>
   </mat-grid-list>
 </div>
