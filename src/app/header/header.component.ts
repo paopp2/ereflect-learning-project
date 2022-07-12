@@ -12,13 +12,21 @@ export class HeaderComponent implements OnInit {
     { name: 'Home', value: ''},
     { name: 'About', value: 'about'},
     { name: 'Contact Us', value: 'contact-us'},
-    { name: 'Leaderboard', value: 'leaderboards'}
   ];
 
-  constructor(private router: Router, public authService: AuthService) { }
+  constructor(private router: Router, public authService: AuthService) { 
+    authService.currentUser$.subscribe(user => {
+      if(user) {
+        this.tabs.push({ name: 'Leaderboard', value: 'leaderboards'});
+      } else {
+        this.tabs.pop();
+      }
+    });
+  }
 
   ngOnInit(): void {
   }
+
   logout() {
     this.authService.logout().then(
       () => this.router.navigate(['/login'])
