@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/services/auth.service';
-import { InputData } from '../models/input-data.model';
-import { UserStats } from '../models/user-stats.model';
-import { UserStatsRepoService } from '../user-stats-repo/user-stats-repo.service';
+import { AuthService } from '../core/services/auth.service';
+import { InputData } from '../core/models/input-data.model';
+import { UserStats } from '../core/models/user-stats.model';
+import { UserStatsRepoService } from '../core/services/user-stats-repo.service';
 import { TypingStatsService } from './services/typing-stats.service';
 
 @Component({

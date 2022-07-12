@@ -8,7 +8,7 @@ import {
   UserCredential,
 } from '@angular/fire/auth';
 import { map, Observable } from 'rxjs';
-import { User } from 'src/app/models/user.model';
+import { User } from 'src/app/core/models/user.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { orderBy, where } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { FirestoreHelper } from '../firestore/firestore-helper.service';
+import { FirestoreHelper } from './firestore-helper.service';
 import { UserStats } from '../models/user-stats.model';
 import { User } from '../models/user.model';
 

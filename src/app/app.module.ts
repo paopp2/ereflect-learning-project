@@ -24,12 +24,12 @@ import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 import { ContactUsComponent } from './contact-us/contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UserBestStatsComponent } from './unggoy-type/user-best-stats/user-best-stats.component';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,11 +59,11 @@ import { SharedModule } from './shared/shared.module';
     MatSelectModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     MatGridListModule,
     MatButtonToggleModule,
     MatProgressSpinnerModule,
     SharedModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

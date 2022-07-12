@@ -9,7 +9,7 @@ import {
   ChangeDetectorRef
 } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
-import { InputData } from 'src/app/models/input-data.model';
+import { InputData } from 'src/app/core/models/input-data.model';
 import { TypingStatsService } from '../services/typing-stats.service';
 
 @Component({
