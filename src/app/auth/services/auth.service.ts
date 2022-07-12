@@ -7,28 +7,30 @@ import {
   authState,
   UserCredential,
 } from '@angular/fire/auth';
-import { Subscription } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  currentUser$: Observable<User | null>;
   currentUser: User | null = null;
 
   constructor(public fireAuth: Auth) { 
-    authState(fireAuth).subscribe(
-      (user) => {
-        this.currentUser = (user) 
-          ? <User>{
-            id: user.uid,
-            displayName: user.displayName,
-            email: user.email,
-            phoneNumber: user.phoneNumber,
-            photoUrl: user.photoURL,
-          } : null;
-      },
+    this.currentUser$ = authState(fireAuth).pipe(
+      map((user, _) => {
+        return user ? <User>{
+          id: user.uid,
+          displayName: user.displayName,
+          email: user.email,
+          phoneNumber: user.phoneNumber,
+          photoUrl: user.photoURL,
+        } : null;
+      }),
     );
+    
+    this.currentUser$.subscribe(user => this.currentUser = user);
   }
 
   // Sign in with Google
