@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './features/about/about.component';
 import { AuthComponent } from './auth/auth/auth.component';
 import {
   canActivate,

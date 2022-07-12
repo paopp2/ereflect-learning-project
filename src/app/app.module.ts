@@ -11,7 +11,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 import { TypingStatsComponent } from './unggoy-type/typing-stats/typing-stats.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthComponent } from './auth/auth/auth.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -29,6 +28,7 @@ import { UserBestStatsComponent } from './unggoy-type/user-best-stats/user-best-
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { ContactUsModule } from './features/contact-us/contact-us.module';
+import { AboutModule } from './features/about/about.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +36,6 @@ import { ContactUsModule } from './features/contact-us/contact-us.module';
     TextSourceComponent,
     TextInputComponent,
     TypingStatsComponent,
-    AboutComponent,
     AuthComponent,
     SwitchOptionsComponent,
     LeaderboardsComponent,
@@ -62,6 +61,7 @@ import { ContactUsModule } from './features/contact-us/contact-us.module';
     SharedModule,
     CoreModule,
     ContactUsModule,
+    AboutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
