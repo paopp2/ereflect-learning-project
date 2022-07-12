@@ -8,6 +8,7 @@ import { TypingStatsService } from '../../services/typing-stats.service';
   selector: 'app-unggoy-type',
   templateUrl: './unggoy-type.component.html',
   styleUrls: ['./unggoy-type.component.css'],
+  providers: [TypingStatsService]
 })
 export class UnggoyTypeComponent implements OnInit {
   currentUserStats?: UserStats;

@@ -27,6 +27,5 @@ const routes: Routes = [
   exports: [
     ...fromComponents.components,
   ],
-  providers: [TypingStatsService]
 })
 export class HomeModule { }
