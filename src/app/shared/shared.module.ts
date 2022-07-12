@@ -5,18 +5,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
-import * as fromPipes from './pipes';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TimeDisplayPipe } from './time-display.pipe';
 @NgModule({
   declarations: [
-    ...fromPipes.pipes,
+    TimeDisplayPipe,
   ],
   imports: [
     CommonModule,
   ],
   exports: [
-    ...fromPipes.pipes,
+    TimeDisplayPipe,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
