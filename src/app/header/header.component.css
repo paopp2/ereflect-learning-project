@@ -23,6 +23,8 @@
 
 .about {
     margin-left: 20px;
+    font-size: 15px;
+    margin-top: 5px;
 }
 
 .logout {
@@ -34,6 +36,12 @@
     margin-top: 5px;
 }
 
-.leaderboards {
-    margin-left: 60px;
+.tabs {
+    color: white;
+    font-size: 16px;
+    margin-top: 5px;
 }
+
+.active-link {
+    color: white;
+} 

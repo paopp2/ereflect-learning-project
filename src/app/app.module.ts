@@ -33,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     BrowserAnimationsModule,
     HttpClientModule,
     MatGridListModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

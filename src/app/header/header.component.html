@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span class="left"
-      ><a routerLink="/" class="logo"
+      ><a [routerLink]="'/'" class="logo"
         ><img
           src="../../assets/icons/icon-monkey.png"
           class="monkeyIcon"
@@ -9,43 +9,36 @@
         />Unggoy Type</a
       ></span
     >
-    <button
-      id="about-button"
-      mat-icon-button
-      class="example-icon favorite-icon about"
-      aria-label="About Icon"
-      [routerLink]="'/'"
-    >
-      Home
-    </button>
-    <button
-      id="about-button"
-      mat-icon-button
-      class="example-icon favorite-icon about"
-      aria-label="About Icon"
-      [routerLink]="'/about'"
-    >
-      About
-    </button>
-    <button
-      id="about-button"
-      mat-icon-button
-      class="example-icon favorite-icon about"
-      aria-label="About Icon"
-      [routerLink]="'/contact-us'"
-    >
-      Contact Us
-    </button>
-    <button
-      id="about-button"
-      mat-icon-button
-      class="example-icon favorite-icon leaderboards"
-      aria-label="About Icon"
-      [routerLink]="'/leaderboards'"
-      *ngIf="authService.currentUser"
-    >
-      Leaderboard
-    </button>
+    <nav mat-tab-nav-bar>
+      <a
+        mat-tab-link
+        [routerLink]="'/'"
+        [routerLinkActive]="'active-link'"
+        class="tabs"
+        >Home</a
+      >
+      <a
+        mat-tab-link
+        [routerLink]="'/about'"
+        [routerLinkActive]="'active-link'"
+        class="tabs"
+        >About</a
+      >
+      <a
+        mat-tab-link
+        [routerLink]="'/contact-us'"
+        [routerLinkActive]="'active-link'"
+        class="tabs"
+        >Contact Us</a
+      >
+      <a
+        mat-tab-link
+        [routerLink]="'/leaderboards'"
+        [routerLinkActive]="'active-link'"
+        class="tabs"
+        >Leaderboard</a
+      >
+    </nav>
     <span class="example-spacer"></span>
     <img
       ngxGravatar
