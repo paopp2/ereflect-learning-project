@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
       if(user) {
         this.tabs.push({ name: 'Leaderboard', value: 'leaderboards'});
       } else {
-        this.tabs.pop();
+        if (this.tabs[this.tabs.length-1].value === 'leaderboards') this.tabs.pop();
       }
     });
   }
