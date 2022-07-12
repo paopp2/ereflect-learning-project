@@ -3,12 +3,11 @@ import {
   ElementRef, 
   EventEmitter,
   Input, 
-  OnDestroy, 
+  AfterViewInit,
   Output, 
   ViewChild
 } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
-import { Subscription } from 'rxjs';
 import { InputData } from 'src/app/models/input-data.model';
 import { TypingStatsService } from '../services/typing-stats.service';
 
@@ -17,13 +16,11 @@ import { TypingStatsService } from '../services/typing-stats.service';
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.css']
 })
-export class TextInputComponent implements OnDestroy {
+export class TextInputComponent implements AfterViewInit {
   @ViewChild('textField') textField!: ElementRef;
   @Input() switchType = 'mxblack';
   @Output() inputChange = new EventEmitter<InputData>();
   isTypeFinished = false;
-  private resetSubscription: Subscription;
-  private stopSubscription: Subscription;
 
   private configSuccess: MatSnackBarConfig = {
     duration: 2000,
@@ -36,17 +33,16 @@ export class TextInputComponent implements OnDestroy {
     public statsService: TypingStatsService, 
     private snackbar: MatSnackBar,
   ) {
-    this.resetSubscription = statsService.reset$.subscribe(() => {
+    statsService.reset$.subscribe(() => {
       this.isTypeFinished = false;
       // Reset focus to textField on reset 
       this.textField.nativeElement.focus();
     });
-    this.stopSubscription = statsService.stop$.subscribe(() => this.isTypeFinished = true);
+    statsService.stop$.subscribe(() => this.isTypeFinished = true);
   }
   
-  ngOnDestroy(): void {
-    this.resetSubscription.unsubscribe();
-    this.stopSubscription.unsubscribe();
+  ngAfterViewInit(): void {
+    this.textField.nativeElement.focus();
   }
 
   onInput(inputEvent: {input: string, rawInputEvent: any}) {
@@ -57,15 +53,25 @@ export class TextInputComponent implements OnDestroy {
   }
   
   onKeydown(event: any) {
+    // Play keyboard sound depending on selected switch type
+    let audio = new Audio(`../../../assets/audio/${this.switchType}.mp3`);
+    audio.play();
+
     // Disable lateral cursor movement using arrow keys  
     if(event.key === "ArrowRight" || event.key === "ArrowLeft") {
       event.preventDefault();
       return;
     }
-
-    // Play keyboard sound depending on selected switch type
-    let audio = new Audio(`../../../assets/audio/${this.switchType}.mp3`);
-    audio.play();
+    
+    // Prevent user from deleting input that is already correct
+    if(event.key === "Backspace") {
+      const inputText = this.statsService.inputText;
+      const displayText = this.statsService.displayText;
+      const inputLength = inputText.length;
+      const inputAlreadyCorrect = inputText === displayText.slice(0, inputLength);
+      
+      if(inputAlreadyCorrect) event.preventDefault();
+    }
   }
 
   handlePaste(){

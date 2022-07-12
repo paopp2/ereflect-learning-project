@@ -47,7 +47,6 @@ export class FirestoreHelper {
     builder: (data: any, docId: string) => T,
     queryConstraints?: QueryConstraint[],
   }): Observable<T[]> {
-    QueryConstraint
     const _query = query(collection(this.db, params.path), ...(params.queryConstraints ?? []));
     return collectionSnapshots(_query).pipe(
       map((snapArray, _) => (snapArray) 

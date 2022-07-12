@@ -1,12 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { InputData } from 'src/app/models/input-data.model';
 import { UserStats } from 'src/app/models/user-stats.model';
 import { UserStatsRepoService } from 'src/app/user-stats-repo/user-stats-repo.service';
-@Injectable({
-  providedIn: 'root'
-})
-export class TypingStatsService {
+
+@Injectable()
+export class TypingStatsService implements OnDestroy {
   currentUserStats!: UserStats;
   isRunning: boolean = false;
   inputText: string = '';
@@ -16,6 +15,12 @@ export class TypingStatsService {
   private interval?: NodeJS.Timeout;
   
   constructor(private userStatsRepo: UserStatsRepoService) { }
+  
+  ngOnDestroy(): void {
+    this.startSubject.complete();
+    this.resetSubject.complete();
+    this.stopSubject.complete();
+  }
 
   private startSubject = new Subject<void>();
   private resetSubject = new Subject<void>();
