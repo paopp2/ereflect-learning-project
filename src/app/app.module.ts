@@ -20,7 +20,6 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { SwitchOptionsComponent } from './unggoy-type/switch-options/switch-options.component';
 import { MatSelectModule } from '@angular/material/select';
-import { GravatarModule } from 'ngx-gravatar';
 import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 import { ContactUsComponent } from './contact-us/contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -58,7 +57,6 @@ import { SharedModule } from './shared/shared.module';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     MatSelectModule,
-    GravatarModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
