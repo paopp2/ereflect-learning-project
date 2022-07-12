@@ -17,8 +17,12 @@ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'login', component: AuthComponent, ...canActivate(redirectAuthorizedToHome) },
-  { path: 'leaderboards', component: LeaderboardsComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'contact-us', component: ContactUsComponent },
+  { 
+    path: 'leaderboards', 
+    loadChildren: () => import('./features/leaderboards/leaderboards.module').then(m => m.LeaderboardsModule),
+    ...canActivate(redirectUnauthorizedToLogin),
+  },
   { 
     path: '', 
     loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
