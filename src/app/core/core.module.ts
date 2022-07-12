@@ -8,10 +8,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+import { GravatarModule } from 'ngx-gravatar';
+import { MatTabsModule } from '@angular/material/tabs';
 import { AppRoutingModule } from '../app-routing.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatButtonModule } from '@angular/material/button';
+import { FooterComponent, HeaderComponent } from './components';
+
+import * as coreComponents from './components';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ...coreComponents.components,
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -19,6 +32,14 @@ import { AppRoutingModule } from '../app-routing.module';
     NoopAnimationsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatIconModule,
+    RouterModule,
+    GravatarModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatProgressSpinnerModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
@@ -30,6 +51,7 @@ import { AppRoutingModule } from '../app-routing.module';
     NoopAnimationsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ...coreComponents.components,
   ],
 })
 export class CoreModule { }

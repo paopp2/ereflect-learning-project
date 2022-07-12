@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { ContactUsModule } from './features/contact-us/contact-us.module';
 import { AboutModule } from './features/about/about.module';
@@ -11,7 +10,6 @@ import { HomeModule } from './features/home/home.module';
   declarations: [AppComponent],
   imports: [
     CoreModule,
-    SharedModule,
     AboutModule,
     ContactUsModule,
     AuthModule,
