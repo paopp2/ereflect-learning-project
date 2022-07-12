@@ -17,10 +17,7 @@ export class AuthComponent implements OnInit {
 
   loginWithGoogle() {
     this.authService.loginWithGoogle({
-      onSuccess: (userCreds) => {
-        console.log(`Successfully signed in: ${JSON.stringify(userCreds)}`);
-        this.router.navigate(['/']);
-      },
+      onSuccess: (userCreds) => this.router.navigate(['/']),
       onError: (error) => console.log(error),
     });
   }
