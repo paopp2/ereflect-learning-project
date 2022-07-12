@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
 import { EmailService } from './services/email.service';
 
@@ -7,12 +7,12 @@ import { EmailService } from './services/email.service';
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css']
 })
-export class ContactUsComponent implements OnInit {
+export class ContactUsComponent implements OnInit, AfterViewInit {
   myForm!: FormGroup;
   requiredMessage: string = 'This field is required!';
   emailValidityMessage: string = 'Please enter a valid email!';
 
-  constructor(private emailService: EmailService) { }
+  constructor(private emailService: EmailService, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
@@ -20,6 +20,10 @@ export class ContactUsComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       message: new FormControl('', Validators.required)
     });
+  }
+
+  ngAfterViewInit(): void {
+    this.cdRef.detectChanges();
   }
 
   onSubmit(form: FormGroup, formGroupDirective: FormGroupDirective) {
