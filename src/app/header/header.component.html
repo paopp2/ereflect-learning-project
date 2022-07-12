@@ -12,31 +12,10 @@
     <nav mat-tab-nav-bar>
       <a
         mat-tab-link
-        [routerLink]="'/'"
-        [routerLinkActive]="'active-link'"
+        *ngFor="let tab of tabs"
+        [routerLink]="'/' + tab.value"
         class="tabs"
-        >Home</a
-      >
-      <a
-        mat-tab-link
-        [routerLink]="'/about'"
-        [routerLinkActive]="'active-link'"
-        class="tabs"
-        >About</a
-      >
-      <a
-        mat-tab-link
-        [routerLink]="'/contact-us'"
-        [routerLinkActive]="'active-link'"
-        class="tabs"
-        >Contact Us</a
-      >
-      <a
-        mat-tab-link
-        [routerLink]="'/leaderboards'"
-        [routerLinkActive]="'active-link'"
-        class="tabs"
-        >Leaderboard</a
+        >{{ tab.name }}</a
       >
     </nav>
     <span class="example-spacer"></span>
