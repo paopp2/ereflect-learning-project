@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
-import { UnggoyTypeComponent } from './unggoy-type/unggoy-type.component';
 import { AboutComponent } from './features/about/about.component';
 import { AuthComponent } from './features/auth/auth.component';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
@@ -10,6 +9,7 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo
 } from '@angular/fire/auth-guard';
+import { UnggoyTypeComponent } from './features/home/components';
 
 const redirectAuthorizedToHome = () => redirectLoggedInTo(['']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);

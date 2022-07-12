@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { InputData } from 'src/app/core/models';
-import { TypingStatsService } from '../services/typing-stats.service';
+import { TypingStatsService } from '../../services/typing-stats.service';
 
 @Component({
   selector: 'app-text-input',

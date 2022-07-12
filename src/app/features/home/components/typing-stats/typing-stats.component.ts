@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TypingStatsService } from '../services/typing-stats.service';
+import { TypingStatsService } from '../../services/typing-stats.service';
 @Component({
   selector: 'app-typing-stats',
   templateUrl: './typing-stats.component.html',
