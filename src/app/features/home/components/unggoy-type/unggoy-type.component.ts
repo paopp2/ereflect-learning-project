@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, UserStatsRepoService } from '../core/services';
-import { InputData, UserStats } from '../core/models';
-import { TypingStatsService } from './services/typing-stats.service';
+import { InputData } from 'src/app/core/models';
+import { UserStats } from 'src/app/core/models/user-stats.model';
+import { AuthService, UserStatsRepoService } from 'src/app/core/services';
+import { TypingStatsService } from '../../services/typing-stats.service';
 
 @Component({
   selector: 'app-unggoy-type',
   templateUrl: './unggoy-type.component.html',
   styleUrls: ['./unggoy-type.component.css'],
-  providers: [TypingStatsService]
 })
 export class UnggoyTypeComponent implements OnInit {
   currentUserStats?: UserStats;

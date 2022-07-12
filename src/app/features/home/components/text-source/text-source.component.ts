@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TypingStatsService } from '../services/typing-stats.service';
 import { paragraph } from 'txtgen';
+import { TypingStatsService } from '../../services/typing-stats.service';
 
 @Component({
   selector: 'app-text-source',
