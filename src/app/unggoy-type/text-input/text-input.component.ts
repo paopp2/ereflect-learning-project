@@ -5,7 +5,8 @@ import {
   Input, 
   AfterViewInit,
   Output, 
-  ViewChild
+  ViewChild,
+  ChangeDetectorRef
 } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { InputData } from 'src/app/models/input-data.model';
@@ -32,6 +33,7 @@ export class TextInputComponent implements AfterViewInit {
   constructor(
     public statsService: TypingStatsService, 
     private snackbar: MatSnackBar,
+    public cdRef: ChangeDetectorRef
   ) {
     statsService.reset$.subscribe(() => {
       this.isTypeFinished = false;
@@ -43,6 +45,7 @@ export class TextInputComponent implements AfterViewInit {
   
   ngAfterViewInit(): void {
     this.textField.nativeElement.focus();
+    this.cdRef.detectChanges();
   }
 
   onInput(inputEvent: {input: string, rawInputEvent: any}) {
