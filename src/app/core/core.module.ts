@@ -17,7 +17,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button';
-import { FooterComponent, HeaderComponent } from './components';
 
 import * as coreComponents from './components';
 
