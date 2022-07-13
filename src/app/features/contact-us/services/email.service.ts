@@ -21,9 +21,12 @@ export class EmailService {
         this.http.post(environment.formspreeApi,
         { name: form.value.name, replyto: form.value.email, message: form.value.message },
         { 'headers': headers }).subscribe(
-          () => {
-            this.snackbar.open("You have successfully sent an email.", 'Okay', this.configSuccess);
-          }
-        )
+          { next: () => {
+                this.snackbar.open("You have successfully sent an email.", 'Okay', this.configSuccess);
+          },
+            error: () => {
+                this.snackbar.open("There was an error in sending your message.", 'Okay', this.configSuccess);
+            }
+          })
     }
 }
