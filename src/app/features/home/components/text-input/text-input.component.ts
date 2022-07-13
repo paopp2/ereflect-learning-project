@@ -19,7 +19,7 @@ import { TypingStatsService } from '../../services/typing-stats.service';
 })
 export class TextInputComponent implements AfterViewInit {
   @ViewChild('textField') textField!: ElementRef;
-  @Input() switchType = 'mxblack';
+  @Input() switchType = '';
   @Output() inputChange = new EventEmitter<InputData>();
   isTypeFinished = false;
 
