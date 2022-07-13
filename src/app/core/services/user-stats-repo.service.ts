@@ -62,7 +62,7 @@ export class UserStatsRepoService {
       path: 'user_stats',
       builder: (data, _) => data as UserStats,
       queryConstraints: [
-        where(stats, '!=', -1),
+        where(stats, '!=', 0),
         orderBy(stats, orderDirection),
       ],
     });
